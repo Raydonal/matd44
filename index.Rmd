@@ -1,0 +1,348 @@
+---
+title: "Amostragem (MATD44)"
+# author: "Professor: Raydonal Ospina Martínez"
+# date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+header-includes:    
+    geometry: margin = 1.0in
+---
+    
+
+
+```{r, echo = FALSE, warning = FALSE}
+# Packages
+suppressPackageStartupMessages(library(tidyverse)) # Data wrangling
+suppressPackageStartupMessages(library(scales)) # Data wrangling
+suppressPackageStartupMessages(library(dplyr)) # Data wrangling
+suppressPackageStartupMessages(library(gridExtra)) # arrange plots of ggplot 
+suppressPackageStartupMessages(library(ggpubr)) # arrange plots of ggplot 
+suppressPackageStartupMessages(library(MASS)) # for shapiro test
+suppressPackageStartupMessages(library(car)) # for ncvTest    
+suppressPackageStartupMessages(library(lmtest)) #  Generic tools for inference in parametric models, Breusch-Pagan Test included
+suppressPackageStartupMessages(library(kableExtra)) # tables
+suppressPackageStartupMessages(library(ggmosaic)) # tables
+suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(GGally)) # gamlss distributions
+suppressPackageStartupMessages(library(gamlss)) # gamlss fits
+suppressPackageStartupMessages(library(gamlss.dist)) # gamlss distributions
+suppressPackageStartupMessages(library(gamlss.add)) # gamlss - Extra Additive Terms - Decision tree
+# suppressPackageStartupMessages(library(gamlss.util)) # gamlss fits
+suppressPackageStartupMessages(library(broom)) # Convert Statistical Objects into Tidy Tibbles
+suppressPackageStartupMessages(library(ggthemes)) # ggplot themes
+suppressPackageStartupMessages(library(cowplot)) # ggplot arrange
+suppressPackageStartupMessages(library(gtable)) # ggplot table
+suppressPackageStartupMessages(library(RColorBrewer)) # cool colors
+suppressPackageStartupMessages(library(colorspace)) # cool colors
+suppressPackageStartupMessages(library(gvlma)) # Top-level function for Global Validation of Linear Models Assumptions.
+suppressPackageStartupMessages(library(sandwich)) # Robust Covariance Matrix Estimators
+# suppressPackageStartupMessages(library(skedastic)) # Heteroskedasticity Diagnostics for Linear Regression Models
+suppressPackageStartupMessages(library(moments)) # Moments
+suppressPackageStartupMessages(library(latex2exp)) # latex Simbols
+suppressPackageStartupMessages(library(gcookbook)) # Moments
+suppressPackageStartupMessages(library(viridis)) # latex Simbols
+suppressPackageStartupMessages(library(gcookbook)) # Moments
+suppressPackageStartupMessages(library(viridisLite)) # latex Simbols
+# Auxiliar - name of response in linear regression model
+responseName <- function (model, ...) deparse(attr(terms(model), "variables")[[2]])
+```
+
+```{r,  echo = FALSE, fig.width = 8, fig.height=5, fig.align="center", message=FALSE,warning=FALSE}
+#From The R Graphics Cookbook
+# Definir a semente para reproduzibilidade
+set.seed(123)
+
+# Simulação de QI  de cientistas de dados com diferentes cores
+n_individuos <- 500
+individuos <- data.frame(
+  indice = 1:n_individuos,
+  QI = rbeta(n_individuos, 8,4),
+  cientista = sample(c("Estatística", "Computação", "Matemática"), 
+               size = n_individuos, replace = TRUE)
+)
+
+
+
+
+# Média da população e da amostra
+media_populacao <- mean(individuos$QI)
+tamanho_amostra <- 50
+amostra <- individuos[sample(nrow(individuos), size = tamanho_amostra), ]
+media_amostra <- mean(amostra$QI)
+
+# Plot da população completa
+p_populacao <- ggplot(individuos, aes(x = indice, y = QI, color = cientista)) +
+  geom_point() +
+  labs(title = "População - Cientistas de dados", x = "Indivíduo", y = "QI")
+
+# Plot da amostra selecionada
+p_amostra <- ggplot(amostra, aes(x = indice, y = QI, color = cientista)) +
+  geom_point() +
+  labs(title = "Amostra",  x = "Indivíduo", y = "QI")
+
+
+# Gráfico de densidade da população
+p_populacao_densidade <- ggplot(individuos, aes(x = QI, fill = cientista)) +
+  geom_density(alpha = 0.6) +
+  geom_vline(xintercept = media_populacao, color = "blue", linetype = "dashed", size = 1, alpha = 0.6) +
+  labs(title = "População", x = "QI", y = "Densidade")
+# +
+#   theme(plot.title = element_text(hjust = 0.5),
+#         legend.position = "top")
+
+# Gráfico de densidade da amostra
+p_amostra_densidade <- ggplot(amostra, aes(x = QI, fill = cientista)) +
+  geom_density(alpha = 0.6) +
+  geom_vline(xintercept = media_populacao, color = "blue", linetype = "dashed", size = 1, alpha = 0.6) +
+  geom_vline(xintercept = media_amostra, color = "red", linetype = "dashed", size = 1) +
+  labs(title = "Amostra", x = "QI", y = "Densidade") 
+# +
+#   theme(plot.title = element_text(hjust = 0.5),
+#         legend.position = "top")
+
+ grid.arrange(p_populacao, p_amostra, p_populacao_densidade, p_amostra_densidade, ncol = 2)
+```
+<h4>
+# PLANO DE ENSINO - APRENDIZAGEM DO COMPONENTE  CURRICULAR
+
+### Semestre 2023.2	
+</h4>
+
+<!-- * **Carga horaria:** 60 horas/Aula. -->
+* **Professor:** Raydonal Ospina Martínez
+* **Homepage do Curso:** [https://castlab.org/courses/matd44/](https://castlab.org/courses/matd44/)
+* **Contato:** raydonalmartinez@ufba.br
+* **Ementa do curso:** [MATD44](Configuracoes/matd44_amostragem_a.pdf) Teoria estatística da amostragem. Critérios para a elaboração de um delineamento amostral. Amostragem aleatória simples. Amostragem aleatória estratificada. Amostragem sistemática. Noções de Amostragem por conglomerados.
+* **Local e horário da disciplina:** As aulas serão ministradas às terças e quintas feiras
+das 8:50 às 10:40 horas <font color="blue">(TURMA 010000)</font> na sala 219 do PAF I (PAF - Pavilhão de Aulas da Federação I - Av. Barão de Geremoabo - s/n - Ondina - Campus de Ondina).
+* **Atenção aos estudantes:** Reunião virtual via google-meet ou reunião presencial com prévio agendamento para alocação de sala no Departamento de Estatística da UFBA
+
+* *<font color="red">Nota:</font> O atendimento somente será realizado com agendamento prévio. Caro aluno, eu sou uma pessoa bastante ocupada e meu tempo, assim como o seu é muito valioso.  Use o tempo que você gastar comigo de forma eficiente. De preferência, traga anotações e perguntas já elaboradas. Seja pontual. Sempre.*
+    
+* **Inicio do curso:** 16 de agosto de 2023.
+
+* **Último dia das aulas:** 16/12/2023 (Mudanças sob direcionamento central no calendário acadêmico da UFBA)
+* **Período de realização de segunda chamada:** A combinar.
+
+* **Pré-requisitos:** MATD42 - Inferência A. A disciplina também requer conhecimentos sólidos de algebra
+
+* **Propósitos da disciplina:** Ajuda a compreender como selecionar amostras representativas de populações maiores. Ensina a coletar e analisar dados de pesquisa usando métodos de amostragem, úteis em pesquisas e estudos de mercado. Capacita a escolher métodos de amostragem apropriados para diferentes problemas. Permite estimar parâmetros populacionais a partir de dados de amostra, calcular intervalos de confiança e realizar testes de hipóteses. Prepara para carreiras em pesquisa, análise de dados e estatística aplicada. Ensina sobre erros e vieses na seleção de amostras e como evitá-los.
+
+* **Objetivos da disciplina:** Neste curso, discutiremos métodos que facilitarão o planejamento, coleta e avaliação de dados provenientes de pesquisas amostrais. Após a introdução dos conceitos básicos de amostragem concentraremos nossa atenção na amostragem probabilística de populações finitas e no cálculo da distribuição amostral dos estimadores da amostra. Em seguida, abordaremos diferentes tipos de designs de amostragem, tais como: amostragem aleatória simples, amostragem estratificada e amostragem por conglomerados. 
+
+***
+<h4>
+## Critério de aprovação
+</h4>
+
+A avaliação tem como objetivo ajudar ao aluno a progredir nas suas aprendizagens e serve também para estabelecer os resultado dos conhecimentos e das competências adquiridas nos diferentes momentos do período acadêmico. A avaliação também contribui para a qualidade do sistema de ensino. Desta forma, os critérios de avaliação para este curso são:
+
+
+| Avaliação | Porcentagem  |	Data da Prova (tentativa)|
+|:-----------:|:-------------:|:-----------------:|
+| Prova 1 |    35% 	    |    - 26/09/2023 -|
+| Prova 2 |    35% 	    |    - 07/11/2023  -|
+| Prova 3 |    30% 	    |    - 07/12/2023 -|
+
+
+A avaliação será constituída pela nota das provas (que podem consistir em projetos a depender do desempenho e participação da turma). O grau atribuído ao aluno no final do curso será o da sua média global ponderada (média aritmética ponderada) entre as notas, i.e.,
+
+<center>
+<h3>
+    M = (0.35 * Prova 1)+(0.35 * Prova 2)+(0.3 * Prova 3).
+</h3>
+</center>
+
+<!-- 1. O aluno que tiver média global M >= 7.5 recebe conceito A. -->
+<!-- 2. O aluno que tiver média global 6.5 = < M < 7.5  recebe conceito B. -->
+<!-- 3. O aluno que tiver média global 5.0 = < M < 6.5  recebe conceito C. -->
+<!-- 4. O aluno que tiver média global M < 5.0  será automaticamente reprovado. -->
+    
+* **Nota:** Não haverá escalonamento de notas. 
+    
+* **Nota:** A prova de 2a chamada é destinada exclusivamente para aqueles que não apresentarem uma (unicamente uma) prova e para tal será necessária a apresentação de alguma justificativa comprovável, como por exemplo, atestado médico ou de trabalho. A prova de 2a chamada cobrirá todo o conteúdo da disciplina. 
+
+***
+
+# Programa da disciplina (Tentativo)
+<center>
+| Semana     | Tópicos                                               | Atividade (geral)                                        |
+|------------|-------------------------------------------------------|----------------------------------------------------------|
+| **1-3**    | **Introdução à Amostragem**                           | - Introdução e conceitos básicos                         |
+|            |                                                       | - Levantamentos por amostragem vs censitários            |
+|            |                                                       | - Unidades de análise, parâmetros e populações           |
+|            |                                                       | - Tipos de levantamento por amostragem                   |
+|            |                                                       | - Tipos de amostras probabilísticas                      |
+|            |                                                       | - Erro amostral vs não amostral                          |
+|            |                                                       | - Ideias básicas sobre planejamento amostral             |
+|            |                                                       | - Parâmetros, estimadores e erro quadrático médio        |
+| **4-5**    | **Amostragem Aleatória Simples (AAS)**                | - AAS com e sem reposição                                |
+|            |                                                       | - Estimadores da média, total e proporção populacional   |
+|            |                                                       | - Intervalos de confiança                                |
+|            |                                                       | - Tamanho de amostra para precisão pré-fixada            |
+| **6**      | **Práticas  - Parte 1**                               | - Introdução ao R/SAS para amostragem                    |
+|            |                                                       | - Prática: Amostragem aleatória simples em R/SAS         |
+| **7**      | **Prova 1**                                           | - Avaliação dos tópicos abordados até a data             |
+| **8-10**   | **Amostragem Aleatória Estratificada (AE)**           | - AE: definições e notações                              |
+|            |                                                       | - Estimadores da média, total e proporção populacional   |
+|            |                                                       | - Alocação da amostra e comparação com AAS               |
+|            |                                                       | - Intervalos de confiança                                |
+| **11-12**  | **Amostragem por Conglomerados**                      | - Definição de conglomerado                              |
+|            |                                                       | - Eficiência da amostragem por conglomerados             |
+|            |                                                       | - Amostragem por conglomerados em uma etapa              |
+|            |                                                       | - Comparação entre conglomerados de tamanhos diferentes  |
+| **13-14**  | **Amostragem Sistemática (AS)**                       | - Descrição do plano amostral AS                         |
+|            |                                                       | - Seleção de uma amostra sistemática                     |
+|            |                                                       | - Comparação AS com amostragem por conglomerado          |
+|            |                                                       | - Estimação da média e variância da média amostral       |
+| **15**     | **Práticas no R/SAS - Parte 2**                       | - Prática: Amostragem Estratificada                      |
+|            |                                                       | - Prática: Amostragem conglomerados                      |
+|            |                                                       | - Prática: Amostragem sistemática                        |
+| **16**     | **Prova 2**                                           | - Avaliação dos tópicos abordados até o momento          |
+| **17**     | **2a chamada**                                        | - Avaliação escrita de todos os tópicos                  |
+</center>
+***
+
+#### Referências bibliográficas (Principal)
+1. Bolfarine, H. e Bussab, W. O. (2005). **Elementos de Amostragem**. Editora Edgard Blücher. (Top)
+
+2. Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias (2020). **Amostragem: Teoria e Prática Usando R**. Disponível [aqui](https://amostragemcomr.github.io/livro/) (Top)
+
+3. MORETTIN, Pedro A.; SINGER, Julio M. **Introdução à Ciência de Dados Fundamentos e Aplicações**. Versão parcial preliminar agosto 2019. Disponível [aqui](https://www.ime.usp.br/\~jmsinger/MAE5755/cdados2019ago06.pdf)
+
+
+***
+#### Referências bibliográficas 
+<ul>
+<li>Särndal, C., Swensson, B. and Wretman, J<em> Model Assisted Survey Sampling.</em> New York, Springer, 1997. (Top)</li>
+
+<li>Cochran, William. <em>Sampling Techniques.</em> New York, NY: Wiley, 1977.</li>
+
+<li>Fink, A. <em>How to sample in surveys.</em> Thousand Oaks, CA: SAGE Publications, 1995.</li>
+
+<li>Groves, Robert M. <em>Survey Errors and Survey Costs</em> (Wiley Series in Survey Methodology). Chichester, England: John Wiley and Sons, Ltd, 2004.</li>
+
+<li>Henry, G. T. <em>Practical sampling.</em> Thousand Oaks, CA: Sage Publications, 1990.</li>
+ 
+ <li>Kalton, G. <em>An Introduction to Survey Sampling.</em> SAGE Publications: Thousand Oaks, CA, 1983.</li>
+ 
+<li>Kish, Leslie. <em>Survey Sampling.</em> New York, NY: Wiley-Interscience, New Ed edition January 20, 1995.</li>
+
+<li>Lohr, Sharon. <em>Sampling: Design and Analysis.</em> Belmont, CA: Duxbury Press, 1999.</li>
+
+<li>Lyberg, L., and Kasprzyk, D. <em>Survey Measurement and Process Quality.</em> New York, NY: Wiley, 1997.</li>
+
+
+***
+
+#### Software (Interessados em implementar seus conhecimentos)
+
+1.  [An Introduction to R](http://cran.r-project.org)
+2.  [SAS - Acadêmico](https://www.sas.com/pt_br/learn/academic-programs/software.html)
+3.  [Rstudio](www.rstudio.com)
+4.  [TeXnicCenter](www.texniccenter.org)
+5.  [Python](http://www.python.org/)
+
+***
+
+## Para refletir
+
+##### Sobrea as aulas
+
+*São reuniões cientificas e profissionais onde são discutidos temas de relevância para a formação pessoal, social e profissional. Portanto é esperado que o aluno chegue sem atraso, não entre na sala abruptamente, não sai da sala durante a discussão, respeite as intervenções do professor e/ou colega(s), não fume (Lei Federal), não use o celular e não promova a destruição de bens públicos, entre outros.*
+
+##### Sobre honestidade acadêmica
+
+*Honestidade e confiança são importantes para todos nós como indivíduos. Neste sentido, os membros da comunidade acadêmica tanto como professores e alunos têm a responsabilidade de manter e promover os princípios da verdade e honestidade acadêmica. Assim, a honestidade acadêmica pressupõe que todos os trabalhos, provas e testes sejam frutos do trabalho individual do aluno salvo os casos onde o professor tenha dado permissão expressa e instruções para a realização de atividades em grupo.*
+
+##### Sobre o plágio
+
+*Constitui desonestidade acadêmica e constitui uma grave falta acadêmica, pois destrói o princípio fundamental de confiança que deve existir no processo de transmissão de conhecimento em atividades de pesquisa e ensino. Não constitui defesa no caso de detecção de plágio que o ato tenha sido feito por negligência ou sem a intenção do aluno. A ausência de intenção pode diminuir a pena imposta, mas não serve como desculpa para o ato. Alunos devem, portanto, ter muito cuidado para evitar o plágio. Se tiver alguma dúvida sobre plágio, citação de passagens de texto, uso de ideias de terceiros ou colaborações com colegas em suas atividades acadêmicas, recomendo que  o aluno procure orientação de um professor ou coordenador acadêmico. (Fonte: Tomado de http://www.ibmecsp.edu.br/biblioteca).*
+
+##### Sobre desonestidade acadêmica
+
+*Desonestidade acadêmica inclui colar em provas e testes, plágio e/ou qualquer adulteração no desenvolvimento de um trabalho ou pesquisa acadêmica. O plágio ocorre quando o aluno e/ou professor apresenta o trabalho de outra pessoa como se fosse seu sem citar a fonte de maneira apropriada. A única exceção à regra de citar adequadamente as fontes ocorre quando informações ou ideias são do senso comum. O plágio inclui, mas não se limita a, apresentar um trabalho obtido de um serviço profissional de redação (inclusive da Internet); citar diretamente ou parafrasear uma passagem de texto sem citar a fonte; e utilizar figuras, gráficos e tabelas sem identificar as fontes. Solicitações inapropriadas não serão admissíveis nesse curso, portanto evite-se constrangimentos. O aluno que agir de modo contrário à ética e honestidade acadêmica receberá forte penalização e será reportado oficialmente à coordenação do curso.*
+
+##### Sobre profissionalismo
+
+*Aluno, você já não é mais criança ou adolescente, mas adulto. Durante seu tempo na universidade, você formará quem você será pelas próximas décadas. O mercado de trabalho quer apenas os melhores e os mais profissionais. Haja desde já como o profissional que você deseja ser. (Fonte: Política do Curso e Etiqueta em Sala de Aula, Professor Dr. Renato J. Cintra).*
+
+##### Sobre tratamento pessoal
+
+*Lembrem que nós somos respeitados e tratados da mesma forma em que tratamos as demais pessoas. Ao se dirigir a professores e/ou colegas, faça-o respeitosamente.*
+
+
+##### Sobre o aluno
+
+*Finalmente quero lembrá-lo que você constrói seu conhecimento e desenvolve sua capacidade de aprender e criar. Seu instrutor está aqui para orientá-lo. Trabalhe, pesquise, seja crítico construtivo, crie, se dedique, se esforce e não desista, se pensar em desistir se esforce mais. Não se preocupe e melhor se ocupe. Você está aqui porque tem condições de vencer.*
+
+***
+
+<!-- ### Material de apoio -->
+
+<!-- *  [Apostila Unidade - I - ](Material/Apostila-1.pdf) Material elaborado pelas professoras: Giovana Silva, Lia Moraes, Rosana Castro e Rosemeire Fiaccone. Revisada em 2011.1 - Monitora: Tatiana Felix da Matta. Revisada em 2013.1 - Profas Gecynalda Gomes e Silvia Regina. Revisada em 2016.1 - Monitor: Jackson. Revisada em 2019.2 - Profas Giovana Silva e Verônica Lima. -->
+<!-- * <font color="purple">[M1]</font> [ME414-UNICAMP](https://github.com/ME414-UNICAMP/ME414-UNICAMP.github.io/tree/master/aulas). Material da disciplina **Estatística para Experimentalistas** elaborado pelas professores Samara Kiihl, Tatiana Benaglia e Benilton Carvalho da UNICAMP. -->
+<!-- * Notas de aula da disciplina **EST0232 - Fundamentos de Estatística Aplicada** em colaboração com a professora Luz Milena Zea Fernández do DE-UFRN. -->
+<!-- * Notas de aula da disciplina **Cálculo I** [(Cálculo Diferencial e Integral - Notas de Aula)](https://sites.icmc.usp.br/andcarva/sma301/Calculo1c-AM6.pdf). Elaborado pelas professoas Márcia Federson e Gabriela Plana. -->
+<!-- *  [Apostila Unidade - II - ](Material/Apostila-2.pdf) Material elaborado pelas professoras: Giovana Silva, Lia Moraes, Rosana Castro e Rosemeire Fiaccone. Revisada em 2010.2 - Monitora: Tatiana Felix da Matta. Revisada em 2013.1 - Profas Gecynalda Gomes e Silvia Regina. Revisada em 2014.1 - Profa Silvia Regina.   Revisada em 2017.2 - Profas Giovana Silva e Verônica Lima. Revisada em 2017.2 - Monitores: Ícaro Augusto e Matheus Borges. -->
+<!-- *  [Apostila Unidade - III - ](Material/Apostila-3.pdf) Material elaborado pelas professoras: Giovana Silva, Lia Moraes, Rosana Castro e Rosemeire Fiaccone. Revisada em 2010.2 - Monitora: Tatiana Felix da Matta. Revisada em 2013.1 - Profas Gecynalda Gomes e Silvia Regina. Revisada em 2014.1 - Profa Silvia Regina.   Revisada em 2017.2 - Profas Giovana Silva e Verônica Lima. Revisada em 2017.2 - Monitores: Ícaro Augusto e Matheus Borges. -->
+
+<!-- *** -->
+
+**Slides**
+
+* Unidade I
+
+ | [Semana 1](Material/semana1.pdf)
+ 
+<!--  |  [Semana 2](Material/semana2.pdf) |  [Semana 3](Material/semana3.pdf)  | [Semana 4](Material/semana4.pdf)   |  [Semana 5](Material/semana5.pdf) | [P-I](Material/PI.pdf) | -->
+
+<!-- *Resultados Prova I* | [Turma-09](Material/T09-Nota-P-I.pdf) | [Turma-10](Material/T10-Nota-P-I.pdf) | -->
+
+<!-- * Unidade II -->
+
+<!--  | [Semana 6](Material/semana6.pdf) | [Semana 7](Material/semana7.pdf) | [Semana 8](Material/semana8.pdf) |  [Semana 9](Material/semana9.pdf) |  [Semana 10](Material/semana10.pdf) | -->
+
+<!-- *Resultados Prova II* | [Turma-09](Material/T09-Nota-P-II.pdf) | [Turma-10](Material/T10-Nota-P-II.pdf) | -->
+
+<!--  * Unidade III -->
+
+<!--  | [Semana 11](Material/semana11.pdf) | [Semana 12](Material/semana12.pdf) | -->
+
+<!-- *Resultados Prova III* | [Turma-09](Material/T09-Nota-P-III.pdf) | [Turma-10](Material/T10-Nota-P-III.pdf) | -->
+
+***
+
+### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> Notas </u> 
+
+<!-- * Prezado aluno, recomendo <font color="red">fortemente</font> fazer todos os exercícios propostos das Apostilas (Unidade - I, II e III para treinamento e afixar conhecimento). -->
+<!-- * Alunos com dificuldades de cálculo recomendo revisar fortemente notas de Cálculo I e o material audiovisual da USP [e-Aulas] (https://eaulas.usp.br/portal/). Lá encontraram uma série de conteúdos de fácil assimilação com notas explicativas e exercícios resolvidos  (Aproveitem!!!) -->
+
+<!-- * Informamos que foi selecionado o monitor **Luiz Antônio** para a disciplina de MAT236.  O monitor irá auxiliar os alunos de MAT236 a resolver os exercícios das quatros listas de exercícios da apostila 1 desta disciplina. Seguem adiante os horários de atendimento da monitoria durante a semana que iniciará no dia 05/09/2022 até o final do semestre. -->
+
+<!-- <font color="red">Mudança de horário da monitoria de MAT236:</font> Na segunda unidade, houve uma alteração nos horários de atendimento da monitoria devido a baixa procura dos alunos na segunda-feira e quinta-feira e maior frequência de alunos na sexta-feira. Devido à maior procura pela monitoria online, na segunda unidade a monitoria será de forma online. Na quinta-feira, o horário presencial passou a ser online. Os alunos que frequentam a monitoria solicitaram mais horários na sexta-feira. Sendo assim, aumentou o tempo de atendimento na sexta-feira -->
+
+
+<!-- | Dia da semana | Horário        | Atendimento online                      | -->
+<!-- |---------------|----------------|---------------------------------------------| -->
+<!-- | Quinta-feira | 13:00 às 14:50 | Link: https://meet.google.com/utq-ukgc-ktg                       | -->
+<!-- | Sexta-feira  | 18:30 às 20:20 | Link: https://meet.google.com/qjj-vvvq-sav                           | -->
+<!-- | Sexta-feira   | 10:40 às 12:30 | Link: https://meet.google.com/pub-dojh-nei | -->
+<!-- | Sexta-feira   | 10:40 às 12:30 | Link: https://meet.google.com/tcj-gxwy-bem | -->
+
+
+
+<!-- * <font color="purple"> Prezado aluno, a prova I do dia 22/09/2022 será realizada da sala 109 do PAF V no horário habitual da aula. Caso haja alguma mudança deixarei algum recado na porta da sala. </font> -->
+
+***
+<!-- ###### Este documento foi gerado através de um arquivo [R Markdown](http://rmarkdown.rstudio.com/). Markdown é uma linguagem simples de formatação que permite produzir documentos HTML, PDF e MS Word, de forma eficiente.   -->
+###### Content Copyright &copy; 2022 Raydonal Ospina Martínez. All Rights Reserved.
+
+
+<!-- https://cales.arizona.edu/~anling/STAT574/notes.htm -->
+<!-- https://mathspace.co/textbooks/syllabuses/Syllabus-1057/topics/Topic-20689/subtopics/Subtopic-268600/ -->
+<!-- https://byjus.com/maths/sampling-methods/ -->
+<!-- https://mathspace.co/textbooks/syllabuses/Syllabus-1057/topics/Topic-20689/subtopics/Subtopic-268600/ -->
+
