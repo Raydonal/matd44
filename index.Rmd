@@ -206,7 +206,7 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 ***
 
 #### Referências bibliográficas (Principal)
-1. Bolfarine, H. e Bussab, W. O. (2005). **Elementos de Amostragem**. Editora Edgard Blücher. (Top)
+1. [[Bolfarine, H. e Bussab, W. O.]](Material/Busab.pdf) (2005). **Elementos de Amostragem**. Editora Edgard Blücher. (Top)
 
 2. Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias (2020). **Amostragem: Teoria e Prática Usando R**. Disponível [aqui](https://amostragemcomr.github.io/livro/) (Top)
 
@@ -216,7 +216,7 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 ***
 #### Referências bibliográficas 
 <ul>
-<li>Särndal, C., Swensson, B. and Wretman, J<em> Model Assisted Survey Sampling.</em> New York, Springer, 1997. (Top)</li>
+<li>[[Särndal, C., Swensson, B. and Wretman, J]](Material/Sarndal.pdf)<em> Model Assisted Survey Sampling.</em> New York, Springer, 1997. (Top)</li>
 
 <li>Cochran, William. <em>Sampling Techniques.</em> New York, NY: Wiley, 1977.</li>
 
@@ -280,9 +280,9 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 
 ***
 
-<!-- ### Material de apoio -->
+### Material de apoio 
 
-<!-- *  [Apostila Unidade - I - ](Material/Apostila-1.pdf) Material elaborado pelas professoras: Giovana Silva, Lia Moraes, Rosana Castro e Rosemeire Fiaccone. Revisada em 2011.1 - Monitora: Tatiana Felix da Matta. Revisada em 2013.1 - Profas Gecynalda Gomes e Silvia Regina. Revisada em 2016.1 - Monitor: Jackson. Revisada em 2019.2 - Profas Giovana Silva e Verônica Lima. -->
+Material elaborado pelos professores: Cristiano Ferraz e Raydonal Ospina
 <!-- * <font color="purple">[M1]</font> [ME414-UNICAMP](https://github.com/ME414-UNICAMP/ME414-UNICAMP.github.io/tree/master/aulas). Material da disciplina **Estatística para Experimentalistas** elaborado pelas professores Samara Kiihl, Tatiana Benaglia e Benilton Carvalho da UNICAMP. -->
 <!-- * Notas de aula da disciplina **EST0232 - Fundamentos de Estatística Aplicada** em colaboração com a professora Luz Milena Zea Fernández do DE-UFRN. -->
 <!-- * Notas de aula da disciplina **Cálculo I** [(Cálculo Diferencial e Integral - Notas de Aula)](https://sites.icmc.usp.br/andcarva/sma301/Calculo1c-AM6.pdf). Elaborado pelas professoas Márcia Federson e Gabriela Plana. -->
@@ -295,8 +295,7 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 
 * Unidade I
 
- | [Semana 1](Material/semana1.pdf)
- 
+ | [Parte 0](Material/Parte-0.pdf) | [Parte 1](Material/Parte-1.pdf) | [Parte 2](Material/Parte-2.pdf) | [Parte 3](Material/Parte-3.pdf) | 
 <!--  |  [Semana 2](Material/semana2.pdf) |  [Semana 3](Material/semana3.pdf)  | [Semana 4](Material/semana4.pdf)   |  [Semana 5](Material/semana5.pdf) | [P-I](Material/PI.pdf) | -->
 
 <!-- *Resultados Prova I* | [Turma-09](Material/T09-Nota-P-I.pdf) | [Turma-10](Material/T10-Nota-P-I.pdf) | -->
@@ -316,6 +315,8 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 ***
 
 ### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> Notas </u> 
+
+* <font color="red">- Aula virtual- </font> Por motivos de segurança a aula do dia 05/09/2023 será realizada de forma virtual. Detalhes da conexão se encontram no e-mail encaminhado.
 
 <!-- * Prezado aluno, recomendo <font color="red">fortemente</font> fazer todos os exercícios propostos das Apostilas (Unidade - I, II e III para treinamento e afixar conhecimento). -->
 <!-- * Alunos com dificuldades de cálculo recomendo revisar fortemente notas de Cálculo I e o material audiovisual da USP [e-Aulas] (https://eaulas.usp.br/portal/). Lá encontraram uma série de conteúdos de fácil assimilação com notas explicativas e exercícios resolvidos  (Aproveitem!!!) -->
@@ -338,7 +339,7 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 
 ***
 <!-- ###### Este documento foi gerado através de um arquivo [R Markdown](http://rmarkdown.rstudio.com/). Markdown é uma linguagem simples de formatação que permite produzir documentos HTML, PDF e MS Word, de forma eficiente.   -->
-###### Content Copyright &copy; 2022 Raydonal Ospina Martínez. All Rights Reserved.
+###### Content Copyright &copy; 2023 Raydonal Ospina Martínez. All Rights Reserved.
 
 
 <!-- https://cales.arizona.edu/~anling/STAT574/notes.htm -->
