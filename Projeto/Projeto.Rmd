@@ -1,0 +1,64 @@
+---
+documentclass: extarticle
+classoption: landscape
+title: "Amostragem  (MATD44)"
+subtitle:  "Projeto Final"
+geometry: margin=0.7in
+fontsize: 14pt
+mainfont: Cambria
+author: 
+  - Raydonal Ospina <a href='mailto:raydonal@castlab.org'> `r fontawesome::fa(name = 'envelope-circle-check', fill = 'darkgreen')`</a>
+output: 
+  html_document: 
+        theme: yeti
+        css:  config/StyleHomework.css
+  pdf_document: 
+    keep_tex: yes
+lang: pt
+# bibliography: refs.bib
+link-citations: yes
+linkcolor: blue
+---
+
+## Apresentação
+O projeto é direcionado no estudo da  PPM - Pesquisa da Pecuária Municipal. Maiores detalhes ver aqui [[PPM]](https://www.ibge.gov.br/estatisticas/economicas/agricultura-e-pecuaria/9107-producao-da-pecuaria-municipal.html?=&t=destaques)
+
+O projeto é de carater individual e utiliza o arquivo de dados [[PPM-29-de-Ago.xlsx]](PPM-29-de-Ago.xlsx) como cadastro (população) para seleção de amostras. O arquivo conta com informações do número de efetivos por espécie para bovinos, equinos, suínos (total) e galináceos (total) para o ano de 2020 e para todos os municípios das regiões sudeste e centro-oeste. Os dados foram extraídos da Pesquisa da Pecuária Municipal, realizada anualmente pelo IBGE e se encontram no sistema SIDRA ver [[aqui]](https://sidra.ibge.gov.br/tabela/3939)
+
+## Objetivos
+
+O objetivo geral do projeto é comparar o desempenho de diversos planos amostrais com respeito a precisão de estimativas fornecidas para totais de animais para o ano de 2020 para cada espécie, para as duas regiões como um todo, e para cada região em separado.  
+
+### Atividade 1. 
+Faça uma análise descritiva que evidencie os valores dos parâmetros de interesse a serem estimados. Apresente os resultados numéricos em uma tabela ou quadro. Dentre os objetivos específicos estão o planejamento e a seleção de amostras utilizando amostragem aleatória simples (AAS), amostragem de Bernoulli (BE) e amostragem de Poisson (ASP).
+
+### Atividade 2. 
+
+Forneça uma breve descrição do esquema amostral que será utilizado para cada tipo de amostragem citado acima.  Considerando a necessidade de gerar estimativas por região, cada região será considerada como um estrato, e cada amostra será alocada proporcionalmente ao tamanho de cada estrato.  
+
+###	Atividade 3. 
+
+Descreva como é selecionada uma amostra estratificada, qual a forma geral do estimador de Horvitz-Thompson para o total populacional, sua variância, e o estimador da variância. Descreva também como é feita uma alocação de amostra proporcional ao tamanho dos estratos. Ainda dentre os objetivos específicos estão a seleção de amostras estratificadas e a geração de estimativas por cada plano amostral. Serão consideradas frações amostrais de 5% e 10% 
+
+
+### Atividade 4. 
+Para cada fração amostral, planeje e selecione amostras de acordo com os planos:
+
+- AAE – Amostragem aleatória estratificada (AAS dentro de cada estrato);
+- AEBE – Amostragem estratificada de Bernoulli (BE dentro de cada estrato);
+
+
+Apresente uma descrição de suas decisões para implementação de cada plano. Coloque no anexo do seu projeto a lista dos municípios selecionados em cada plano, para a fração amostral de 5%. 
+
+### Atividade 5. 
+Para cada amostra selecionada apresente estimativas de total populacional, erro-padrão, e coeficiente de variação, para cada espécie de animal do ano de 2020. 
+
+Por último, de posse das estimativas produzidas, faça um estudo de recomendação de tamanho de amostra caso uma amostra aleatória estratificada seja considerada para selecionar uma amostra de municípios no futuro.
+
+
+---
+#### Faça o seu melhor - Bom trabalho
+
+
+
+
