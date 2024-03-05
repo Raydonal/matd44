@@ -142,9 +142,9 @@ A avaliação tem como objetivo ajudar ao aluno a progredir nas suas aprendizage
 
 | Avaliação | Porcentagem  |	Data da Prova (tentativa)|
 |:-----------:|:-------------:|:-----------------:|
-| Prova 1 |    35% 	    |    - 18/04/2023 -|
-| Prova 2 |    35% 	    |    - 30/05/2023  -|
-| Prova 3 |    30% 	    |    - 04/07/2023 -|
+| Prova 1 |    35% 	    |    - 18/04/2024 -|
+| Prova 2 |    35% 	    |    - 30/05/2024  -|
+| Prova 3 |    30% 	    |    - 04/07/2024 -|
 
 
 A avaliação será constituída pela nota das provas (que podem consistir em projetos, listas de exercicios e/ou projetos a depender do desempenho e participação da turma). O grau atribuído ao aluno no final do curso será o da sua média global ponderada (média aritmética ponderada) entre as notas, i.e.,
