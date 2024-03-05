@@ -68,14 +68,14 @@ individuos <- data.frame(
 
 # Média da população e da amostra
 media_populacao <- mean(individuos$QI)
-tamanho_amostra <- 100
+tamanho_amostra <- 50
 amostra <- individuos[sample(nrow(individuos), size = tamanho_amostra), ]
 media_amostra <- mean(amostra$QI)
 
 # Plot da população completa
 p_populacao <- ggplot(individuos, aes(x = indice, y = QI, color = cientista)) +
   geom_point() +
-  labs(title = "População", x = "Indivíduo", y = "QI")
+  labs(title = "População - Cientistas de dados", x = "Indivíduo", y = "QI")
 
 # Plot da amostra selecionada
 p_amostra <- ggplot(amostra, aes(x = indice, y = QI, color = cientista)) +
@@ -107,7 +107,7 @@ p_amostra_densidade <- ggplot(amostra, aes(x = QI, fill = cientista)) +
 <h4>
 # PLANO DE ENSINO - APRENDIZAGEM DO COMPONENTE  CURRICULAR
 
-### Semestre 2024.1	
+### Semestre 2023.2	
 </h4>
 
 <!-- * **Carga horaria:** 60 horas/Aula. -->
@@ -116,14 +116,14 @@ p_amostra_densidade <- ggplot(amostra, aes(x = QI, fill = cientista)) +
 * **Contato:** raydonalmartinez@ufba.br
 * **Ementa do curso:** [MATD44](Configuracoes/matd44_amostragem_a.pdf) Teoria estatística da amostragem. Critérios para a elaboração de um delineamento amostral. Amostragem aleatória simples. Amostragem aleatória estratificada. Amostragem sistemática. Noções de Amostragem por conglomerados.
 * **Local e horário da disciplina:** As aulas serão ministradas às terças e quintas feiras
-das 8:50 às 10:40 horas <font color="blue">(TURMA T01)</font> na sala 219 do PAF I (PAF - Pavilhão de Aulas da Federação I - Av. Barão de Geremoabo - s/n - Ondina - Campus de Ondina).
-* **Atenção aos estudantes:** Reunião virtual via google-meet ou reunião presencial com prévio agendamento. O local de atendimento presencial será em alguma sala disponível no Departamento de Estatística da UFBA.
+das 8:50 às 10:40 horas <font color="blue">(TURMA 010000)</font> na sala 219 do PAF I (PAF - Pavilhão de Aulas da Federação I - Av. Barão de Geremoabo - s/n - Ondina - Campus de Ondina).
+* **Atenção aos estudantes:** Reunião virtual via google-meet ou reunião presencial com prévio agendamento para alocação de sala no Departamento de Estatística da UFBA
 
-* *<font color="red">Nota:</font> O atendimento somente será realizado com agendamento prévio. Caro aluno, eu sou uma pessoa bastante ocupada e meu tempo, assim como o seu, é muito valioso.  Use o tempo que você gastar comigo de forma eficiente. De preferência já traga anotações e perguntas já elaboradas. Seja pontual. Sempre.*
+* *<font color="red">Nota:</font> O atendimento somente será realizado com agendamento prévio. Caro aluno, eu sou uma pessoa bastante ocupada e meu tempo, assim como o seu é muito valioso.  Use o tempo que você gastar comigo de forma eficiente. De preferência, traga anotações e perguntas já elaboradas. Seja pontual. Sempre.*
     
-* **Inicio do curso:** 12 de março de 2024.
+* **Inicio do curso:** 16 de agosto de 2023.
 
-* **Último dia das aulas:** 12/07/2024 (Mudanças desta data obedeceram os direcionamentos da adiministração central da UFBA no calendário acadêmico da UFBA)
+* **Último dia das aulas:** 16/12/2023 (Mudanças sob direcionamento central no calendário acadêmico da UFBA)
 * **Período de realização de segunda chamada:** A combinar.
 
 * **Pré-requisitos:** MATD42 - Inferência A. A disciplina também requer conhecimentos sólidos de algebra
@@ -142,12 +142,12 @@ A avaliação tem como objetivo ajudar ao aluno a progredir nas suas aprendizage
 
 | Avaliação | Porcentagem  |	Data da Prova (tentativa)|
 |:-----------:|:-------------:|:-----------------:|
-| Prova 1 |    35% 	    |    - 18/04/2023 -|
-| Prova 2 |    35% 	    |    - 30/05/2023  -|
-| Prova 3 |    30% 	    |    - 04/07/2023 -|
+| Prova 1 |    35% 	    |    - 26/09/2023 -|
+| Prova 2 |    35% 	    |    - 07/11/2023  -|
+| Prova 3 |    30% 	    |    - 07/12/2023 -|
 
 
-A avaliação será constituída pela nota das provas (que podem consistir em projetos, listas de exercicios e/ou projetos a depender do desempenho e participação da turma). O grau atribuído ao aluno no final do curso será o da sua média global ponderada (média aritmética ponderada) entre as notas, i.e.,
+A avaliação será constituída pela nota das provas (que podem consistir em projetos a depender do desempenho e participação da turma). O grau atribuído ao aluno no final do curso será o da sua média global ponderada (média aritmética ponderada) entre as notas, i.e.,
 
 <center>
 <h3>
@@ -184,31 +184,29 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 |            |                                                       | - Tamanho de amostra para precisão pré-fixada            |
 | **6**      | **Práticas  - Parte 1**                               | - Introdução ao R/SAS para amostragem                    |
 |            |                                                       | - Prática: Amostragem aleatória simples em R/SAS         |
-| **6**      | **Prova 1**                                           | - Avaliação dos tópicos abordados até a data             |
-| **7-9**    | **Amostragem Aleatória Estratificada (AE)**           | - AE: definições e notações                              |
+| **7-10**   | **Amostragem Aleatória Estratificada (AE)**           | - AE: definições e notações                              |
 |            |                                                       | - Estimadores da média, total e proporção populacional   |
 |            |                                                       | - Alocação da amostra e comparação com AAS               |
 |            |                                                       | - Intervalos de confiança                                |
-| **10-11**  | **Amostragem por Conglomerados**                      | - Definição de conglomerado                              |
+| **11-12**  | **Amostragem por Conglomerados**                      | - Definição de conglomerado                              |
 |            |                                                       | - Eficiência da amostragem por conglomerados             |
 |            |                                                       | - Amostragem por conglomerados em uma etapa              |
 |            |                                                       | - Comparação entre conglomerados de tamanhos diferentes  |
-| **12**     | **Prática  - Parte 2**                                | - Prática: Amostragem Estratificada                      |
-|            |                                                       | - Prática: Amostragem conglomerados                      |
-| **12**     | **Prova 2**                                           | - Avaliação dos tópicos abordados até a data             |
 | **13-14**  | **Amostragem Sistemática (AS)**                       | - Descrição do plano amostral AS                         |
 |            |                                                       | - Seleção de uma amostra sistemática                     |
 |            |                                                       | - Comparação AS com amostragem por conglomerado          |
 |            |                                                       | - Estimação da média e variância da média amostral       |
-| **15 **    | **Estudo de caso**                                    | - Estudo de caso de pesquisa em amostragem e tecnologia  |
-| **16**     | **Prática  - Parte 3**                                | - Prática: Amostragem Sistemática                        |
-| **16 **    | **Prova 3 - Projeto**                                 | - Avaliação dos tópicos abordados até o momento          |
-| **17**     | **2a chamada**                                        | - Avaliação escrita de todos os tópicos                  |
+| **15**      | **Prova 1**                                           | - Avaliação dos tópicos abordados até a data             |
+| **16**     | **Práticas no R/SAS - Parte 2**                       | - Prática: Amostragem Estratificada                      |
+|            |                                                       | - Prática: Amostragem conglomerados                      |
+|            |                                                       | - Prática: Amostragem sistemática                        |
+| **17**     | **Prova 2 - Projeto**                                           | - Avaliação dos tópicos abordados até o momento          |
+| **18**     | **2a chamada**                                        | - Avaliação escrita de todos os tópicos                  |
 </center>
 ***
 
 #### Referências bibliográficas (Principal)
-1. [[Bolfarine, H. e Bussab, W. O.]](Material/Busab.pdf) (2005). **Elementos de Amostragem**. Editora Edgard Blücher. 
+1. [[Bolfarine, H. e Bussab, W. O.]](Material/Busab.pdf) (2005). **Elementos de Amostragem**. Editora Edgard Blücher. (Top)
 
 2. Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias (2020). **Amostragem: Teoria e Prática Usando R**. Disponível [aqui](https://amostragemcomr.github.io/livro/) (Top)
 
@@ -252,7 +250,6 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 3.  [Rstudio](www.rstudio.com)
 4.  [TeXnicCenter](www.texniccenter.org)
 5.  [Python](http://www.python.org/)
-6.  [Julia](https://julialang.org/)
 
 ***
 
@@ -291,7 +288,7 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 
 ### Material de apoio 
 
-<!-- Material elaborado pelos professores: Cristiano Ferraz e Raydonal Ospina -->
+Material elaborado pelos professores: Cristiano Ferraz e Raydonal Ospina
 <!-- * <font color="purple">[M1]</font> [ME414-UNICAMP](https://github.com/ME414-UNICAMP/ME414-UNICAMP.github.io/tree/master/aulas). Material da disciplina **Estatística para Experimentalistas** elaborado pelas professores Samara Kiihl, Tatiana Benaglia e Benilton Carvalho da UNICAMP. -->
 <!-- * Notas de aula da disciplina **EST0232 - Fundamentos de Estatística Aplicada** em colaboração com a professora Luz Milena Zea Fernández do DE-UFRN. -->
 <!-- * Notas de aula da disciplina **Cálculo I** [(Cálculo Diferencial e Integral - Notas de Aula)](https://sites.icmc.usp.br/andcarva/sma301/Calculo1c-AM6.pdf). Elaborado pelas professoas Márcia Federson e Gabriela Plana. -->
@@ -299,27 +296,24 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 <!-- *  [Apostila Unidade - III - ](Material/Apostila-3.pdf) Material elaborado pelas professoras: Giovana Silva, Lia Moraes, Rosana Castro e Rosemeire Fiaccone. Revisada em 2010.2 - Monitora: Tatiana Felix da Matta. Revisada em 2013.1 - Profas Gecynalda Gomes e Silvia Regina. Revisada em 2014.1 - Profa Silvia Regina.   Revisada em 2017.2 - Profas Giovana Silva e Verônica Lima. Revisada em 2017.2 - Monitores: Ícaro Augusto e Matheus Borges. -->
 
 <!-- *** -->
-O material de apoio será distribuído ao longo do curso. Esse material pode incluir, livros, slides de aula, scripts para reprodução, artigos científicos, artigos dedivulgação, entre outros.
 
 **Slides**
 
 * Unidade I
 
-Em breve
- <!-- | [Parte 0](Material/Parte-0.pdf)  -->
-<!--  | [Parte 1](Material/Parte-1.pdf) | [Parte 2](Material/Parte-2.pdf) | [Parte 3](Material/Parte-3.pdf) | -->
-
-<!-- * Unidade II -->
-
-<!--  | [Parte 4](Material/Parte-4.pdf) | [Parte 5](Material/Parte-5.pdf) |  [Parte 6a ](Material/misclasification-V-ESAMP-2017.pdf) |  [Parte 6b ](Material/Misclassification_and_area_sample.pdf) |  -->
-
-<!--  * Laboratório -->
-
-<!--  | [Prática 01](Scripts/Practical_01.R) | [Prática 02](Scripts/Practical_02.R)| -->
-
-<!--  Dados Censo penitenciário  [[Aqui]](https://proyectos.inei.gob.pe/iinei/srienaho/descarga/SPSS/512-Modulo860.zip). Mais informações ver o site do INEI [Censo Nacional de población Penitenciária](https://proyectos.inei.gob.pe/iinei/srienaho/Consulta_por_Encuesta.asp) -->
-
-
+ | [Parte 0](Material/Parte-0.pdf) | [Parte 1](Material/Parte-1.pdf) | [Parte 2](Material/Parte-2.pdf) | [Parte 3](Material/Parte-3.pdf) |
+ 
+* Unidade II
+ 
+ | [Parte 4](Material/Parte-4.pdf) | [Parte 5](Material/Parte-5.pdf) |  [Parte 6a ](Material/misclasification-V-ESAMP-2017.pdf) |  [Parte 6b ](Material/Misclassification_and_area_sample.pdf) | 
+ 
+ * Laboratório
+ 
+ | [Prática 01](Scripts/Practical_01.R) | [Prática 02](Scripts/Practical_02.R)|
+ 
+ Dados Censo penitenciário  [[Aqui]](https://proyectos.inei.gob.pe/iinei/srienaho/descarga/SPSS/512-Modulo860.zip). Mais informações ver o site do INEI [Censo Nacional de población Penitenciária](https://proyectos.inei.gob.pe/iinei/srienaho/Consulta_por_Encuesta.asp)
+ 
+ 
 <!--  |  [Semana 2](Material/semana2.pdf) |  [Semana 3](Material/semana3.pdf)  | [Semana 4](Material/semana4.pdf)   |  [Semana 5](Material/semana5.pdf) | [P-I](Material/PI.pdf) | -->
 
 <!-- *Resultados Prova I* | [Turma-09](Material/T09-Nota-P-I.pdf) | [Turma-10](Material/T10-Nota-P-I.pdf) | -->
@@ -338,18 +332,18 @@ Em breve
 
 ***
 
-### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> Novidades </u> 
+### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> Notas </u> 
 
-<!-- * <font color="pink">- Aula virtual- </font> Por motivos de segurança a aula do dia 05/09/2023 será realizada de forma virtual. Detalhes da conexão se encontram no e-mail encaminhado. -->
+* <font color="pink">- Aula virtual- </font> Por motivos de segurança a aula do dia 05/09/2023 será realizada de forma virtual. Detalhes da conexão se encontram no e-mail encaminhado.
 
-<!-- * <font color="pink"> - Lista - Exemplos - </font> [[Aqui]](Material/ExemplosAmostragemUnidade-I.pdf) -->
+* <font color="pink"> - Lista - Exemplos - </font> [[Aqui]](Material/ExemplosAmostragemUnidade-I.pdf)
 
-<!-- * <font color="pink"> - Lista - Exercicios - </font> [[Aqui]](Material/Lista_1_MATD44_2023_2.pdf) -->
+* <font color="pink"> - Lista - Exercicios - </font> [[Aqui]](Material/Lista_1_MATD44_2023_2.pdf)
 
-<!-- * <font color="pink">- Prova I - </font>  [[Aqui]](Material/UFBA_MATD44_Amostragem_Prova_I.pdf) - [[Gabarito]](Scripts/GabaritoProvaI.pdf) -->
+* <font color="pink">- Prova I - </font>  [[Aqui]](Material/UFBA_MATD44_Amostragem_Prova_I.pdf) - [[Gabarito]](Scripts/GabaritoProvaI.pdf)
 
 
-<!-- * <font color="red">- Projeto Final - </font>  [[Aqui]](Projeto/Projeto.html)  -->
+* <font color="red">- Projeto Final - </font>  [[Aqui]](Projeto/Projeto.html) 
 
 <!-- * Prezado aluno, recomendo <font color="red">fortemente</font> fazer todos os exercícios propostos das Apostilas (Unidade - I, II e III para treinamento e afixar conhecimento). -->
 <!-- * Alunos com dificuldades de cálculo recomendo revisar fortemente notas de Cálculo I e o material audiovisual da USP [e-Aulas] (https://eaulas.usp.br/portal/). Lá encontraram uma série de conteúdos de fácil assimilação com notas explicativas e exercícios resolvidos  (Aproveitem!!!) -->
@@ -372,7 +366,7 @@ Em breve
 
 ***
 <!-- ###### Este documento foi gerado através de um arquivo [R Markdown](http://rmarkdown.rstudio.com/). Markdown é uma linguagem simples de formatação que permite produzir documentos HTML, PDF e MS Word, de forma eficiente.   -->
-###### Content Copyright &copy; 2024 Raydonal Ospina Martínez. All Rights Reserved.
+###### Content Copyright &copy; 2023 Raydonal Ospina Martínez. All Rights Reserved.
 
 
 <!-- https://cales.arizona.edu/~anling/STAT574/notes.htm -->
