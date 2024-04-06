@@ -142,9 +142,9 @@ A avaliação tem como objetivo ajudar ao aluno a progredir nas suas aprendizage
 
 | Avaliação | Porcentagem  |	Data da Prova (tentativa)|
 |:-----------:|:-------------:|:-----------------:|
-| Prova 1 |    35% 	    |    - 18/04/2024 -|
-| Prova 2 |    35% 	    |    - 30/05/2024  -|
-| Prova 3 |    30% 	    |    - 04/07/2024 -|
+| Prova 1 |    35% 	    |     18/04/2024 |
+| Prova 2 |    35% 	    |     30/05/2024 |
+| Prova 3 |    30% 	    |     04/07/2024 |
 
 
 A avaliação será constituída pela nota das provas (que podem consistir em projetos, listas de exercicios e/ou projetos a depender do desempenho e participação da turma). O grau atribuído ao aluno no final do curso será o da sua média global ponderada (média aritmética ponderada) entre as notas, i.e.,
@@ -208,23 +208,29 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 ***
 
 #### Referências bibliográficas (Principal)
-1. [[Bolfarine, H. e Bussab, W. O.]](Material/Busab.pdf) (2005). **Elementos de Amostragem**. Editora Edgard Blücher. 
 
-2. Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias (2020). **Amostragem: Teoria e Prática Usando R**. Disponível [aqui](https://amostragemcomr.github.io/livro/) (Top)
+1. [[TILLÉ, Yves.]](Material/Sampling-finite-population.pdf). **Sampling and estimation from finite populations.** John Wiley & Sons, 2020.
 
-3. MORETTIN, Pedro A.; SINGER, Julio M. **Introdução à Ciência de Dados Fundamentos e Aplicações**. Versão parcial preliminar agosto 2019. Disponível [aqui](https://www.ime.usp.br/\~jmsinger/MAE5755/cdados2019ago06.pdf)
+2. [[Bolfarine, H. e Bussab, W. O.]](Material/Busab.pdf). **Elementos de Amostragem**. Editora Edgard Blücher, 2005
 
-4. [[LEWIS, Taylor H.]](Material/Lewis.pdf) **Complex survey data analysis with SAS**. CRC Press, 2016.
+3. Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias. **Amostragem: Teoria e Prática Usando R**. Disponível [aqui](https://amostragemcomr.github.io/livro/) (Top), 2020.
 
-5. [[TILLÉ, Yves. ]](Material/Sampling-Algorithms.pdf) **Sampling algorithms**. Springer New York, 2006.
+4. MORETTIN, Pedro A.; SINGER, Julio M. **Introdução à Ciência de Dados Fundamentos e Aplicações**. Versão parcial preliminar agosto 2019. Disponível [aqui](https://www.ime.usp.br/\~jmsinger/MAE5755/cdados2019ago06.pdf), 2019.
 
-6. [[Bakerman, Jordan. ]](Material/sas-programming-for-r-users) **SAS ® Programming for R Users**. SAS Institute Inc., SAS, 2019.
+5. [[LEWIS, Taylor]](Material/Lewis.pdf). **Complex survey data analysis with SAS**. CRC Press, 2016.
+
+6. [[TILLÉ, Yves]](Material/Sampling-Algorithms.pdf). **Sampling algorithms**. Springer New York, 2006.
+
+7. [[Bakerman, Jordan]](Material/sas-programming-for-r-users.pdf). **SAS ® Programming for R Users**. SAS Institute Inc., SAS, 2019.
+
+8. [[Lohr, Sharon]](Material/Sampling-Design.pdf). **Sampling: design and analysis**. Chapman and Hall/CRC, 2021.
+
+9. [[Särndal, Carl-Erik, Bengt Swensson, and Jan Wretman.]](Material/Sarndal.pdf) **Model assisted survey sampling.** Springer Science & Business Media, 2003.
 
 ***
 
 #### Referências bibliográficas 
 <ul>
-<li>[[Särndal, C., Swensson, B. and Wretman, J]](Material/Sarndal.pdf)<em> Model Assisted Survey Sampling.</em> New York, Springer, 1997. (Top)</li>
 
 <li>Cochran, William. <em>Sampling Techniques.</em> New York, NY: Wiley, 1977.</li>
 
@@ -237,8 +243,6 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
  <li>Kalton, G. <em>An Introduction to Survey Sampling.</em> SAGE Publications: Thousand Oaks, CA, 1983.</li>
  
 <li>Kish, Leslie. <em>Survey Sampling.</em> New York, NY: Wiley-Interscience, New Ed edition January 20, 1995.</li>
-
-<li>Lohr, Sharon. <em>Sampling: Design and Analysis.</em> Belmont, CA: Duxbury Press, 1999.</li>
 
 <li>Lyberg, L., and Kasprzyk, D. <em>Survey Measurement and Process Quality.</em> New York, NY: Wiley, 1997.</li>
 
@@ -291,6 +295,15 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 
 ### Material de apoio 
 
+* <font color="purple">  Hansen, M. H., & Hurwitz, W. N. (1943).</font> On the theory of sampling from finite populations. The Annals of Mathematical Statistics, 14(4), 333-362.  [[Artigo]](Papers/Hansen-TheorySamplingFinite-1943.pdf)
+
+* <font color="purple"> Hansen, M. H., & Hurwitz, W. N. (1949).</font> On the determination of optimum probabilities in sampling. The Annals of Mathematical Statistics, 426-432. [[Artigo]](Papers/Hansen-DeterminationOptimumProbabilities-1949.pdf)
+
+* <font color="purple"> Horvitz, D. G., & Thompson, D. J. (1952). </font> A generalization of sampling without replacement from a finite universe. Journal of the American statistical Association, 47(260), 663-685. [[Artigo]](Papers/Horvitz-Thompson-1952-jasa.pdf)
+
+
+
+
 <!-- Material elaborado pelos professores: Cristiano Ferraz e Raydonal Ospina -->
 <!-- * <font color="purple">[M1]</font> [ME414-UNICAMP](https://github.com/ME414-UNICAMP/ME414-UNICAMP.github.io/tree/master/aulas). Material da disciplina **Estatística para Experimentalistas** elaborado pelas professores Samara Kiihl, Tatiana Benaglia e Benilton Carvalho da UNICAMP. -->
 <!-- * Notas de aula da disciplina **EST0232 - Fundamentos de Estatística Aplicada** em colaboração com a professora Luz Milena Zea Fernández do DE-UFRN. -->
@@ -301,11 +314,11 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 <!-- *** -->
 O material de apoio será distribuído ao longo do curso. Esse material pode incluir, livros, slides de aula, scripts para reprodução, artigos científicos, artigos dedivulgação, entre outros.
 
-**Slides**
+<!-- **Slides** -->
 
-* Unidade I
+<!-- * Unidade I -->
 
-Em breve
+<!-- Em breve -->
  <!-- | [Parte 0](Material/Parte-0.pdf)  -->
 <!--  | [Parte 1](Material/Parte-1.pdf) | [Parte 2](Material/Parte-2.pdf) | [Parte 3](Material/Parte-3.pdf) | -->
 
@@ -338,11 +351,15 @@ Em breve
 
 ***
 
-### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> Novidades </u> 
+### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> Atividades </u> 
 
 <!-- * <font color="pink">- Aula virtual- </font> Por motivos de segurança a aula do dia 05/09/2023 será realizada de forma virtual. Detalhes da conexão se encontram no e-mail encaminhado. -->
 
-<!-- * <font color="pink"> - Lista - Exemplos - </font> [[Aqui]](Material/ExemplosAmostragemUnidade-I.pdf) -->
+<font color="purple"> - Lista de exercícios I - </font> 
+
+  + Bolfarine & Bussab (2005),  Exercícios: 1.1, 1.3, 1.6, 1.11, 1.13, 2.1, 2.2, 2.6
+  + Tillé (2020). Exercícios: 2.1, 2.2,2.3, 2.4
+  + Särndal (2003). Exercícios: 2.1, 2.2, 2.3, 2.5
 
 <!-- * <font color="pink"> - Lista - Exercicios - </font> [[Aqui]](Material/Lista_1_MATD44_2023_2.pdf) -->
 
