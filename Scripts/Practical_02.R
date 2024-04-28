@@ -146,7 +146,7 @@ N = length(unique(apipop$dnum))
 # distribuição dos conglomerados
 plot(table(apipop$dnum))
 
-# suponhamos que queremos realziar uma amostragem 
+# suponhamos que queremos realizar uma amostragem 
 # por conglomerados em um estágio de 15 distritos
 # escolares
 
@@ -203,7 +203,8 @@ svytotal(~enroll, dclus1)
 # media
 svytotal(~api00, dclus1)
 
-# Note pelos resultados que este plano amostral resulta ser menos preciso
+# Note pelos resultados que este plano amostral 
+# resulta ser menos preciso
 # que AAS ou AASE.
 
 
@@ -224,7 +225,9 @@ aux0 = aggregate(Pop[,6], by=list(Pop$dnum), function(x)x[1])
 # Pegar os registros unicos de numero de colegios por distrito
 aux1 = aggregate(Pop[,7], by=list(Pop$dnum), length)
 
-# Base de dados dos distritos
+aux1# Base de dados dos distritos
+
+
 Popd = cbind(aux0, aux1)
 names(Popd)[c(2,4)] = c("dname", "Ncdis")
 
@@ -232,12 +235,17 @@ names(Popd)[c(2,4)] = c("dname", "Ncdis")
 # a avaliação dos estágios
 Pop = merge(Pop, Popd[,c(2,4)], by = c("dname"))
 
+dplyr::glimpse(Pop)
+
 m1 <- sampling::cluster(Pop, clustername = c("dnum"), 
                         size = 40, method= "srswor" )
 summary(m1)
 
 m1 <- getdata(Pop,m1) # Amostra do primeiro estágio (distritos 
 # como unidades primarias)
+
+
+dplyr::glimpse(m1)
 
 # Agora vanos fazer de forma recursiva a seleção das unidades secundarias
 # do segundo estágio (colegios)
@@ -273,7 +281,7 @@ svytotal(~enroll, dclus2, na.rm=TRUE)
 
 svymean(~api00, dclus2)
 
-
+svyratio(~api00, ~enroll, dclus2)
 
 
 
