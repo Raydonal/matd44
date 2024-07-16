@@ -142,9 +142,9 @@ A avaliação tem como objetivo ajudar ao aluno a progredir nas suas aprendizage
 
 | Avaliação | Porcentagem  |	Data da Prova (tentativa)|
 |:-----------:|:-------------:|:-----------------:|
-| Prova 1 |    35% 	    |     18/04/2024 |
-| Prova 2 |    35% 	    |     30/05/2024 |
-| Prova 3 |    30% 	    |     04/07/2024 |
+| Prova 1 |    35% 	    |     02/05/2024  |
+| Prova 2 |    35% 	    |     08/08/2024  |
+| Prova 3 |    30% 	    |     05/09/2024  |
 
 
 A avaliação será constituída pela nota das provas (que podem consistir em projetos, listas de exercicios e/ou projetos a depender do desempenho e participação da turma). O grau atribuído ao aluno no final do curso será o da sua média global ponderada (média aritmética ponderada) entre as notas, i.e.,
@@ -182,28 +182,25 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 |            |                                                       | - Estimadores da média, total e proporção populacional   |
 |            |                                                       | - Intervalos de confiança                                |
 |            |                                                       | - Tamanho de amostra para precisão pré-fixada            |
-| **6**      | **Práticas  - Parte 1**                               | - Introdução ao R/SAS para amostragem                    |
-|            |                                                       | - Prática: Amostragem aleatória simples em R/SAS         |
+| **5-6**  | **Amostragem Sistemática (AS)**                       | - Descrição do plano amostral AS                         |
+|            |                                                       | - Seleção de uma amostra sistemática                     |
 | **6**      | **Prova 1**                                           | - Avaliação dos tópicos abordados até a data             |
-| **7-9**    | **Amostragem Aleatória Estratificada (AE)**           | - AE: definições e notações                              |
+| **Greve**  | *29/04/2024 - 27/06/2024*                             |                                                          |
+| **8**    | **Amostragem Aleatória Estratificada (AE)**             | - AE: definições e notações                              |
 |            |                                                       | - Estimadores da média, total e proporção populacional   |
 |            |                                                       | - Alocação da amostra e comparação com AAS               |
 |            |                                                       | - Intervalos de confiança                                |
-| **10-11**  | **Amostragem por Conglomerados**                      | - Definição de conglomerado                              |
+| **9**      | **Estudo dirigido**                                   | - Prática no `R`. Uso do pacote `survey` [[Rmarkdow]](Material/Pratica.html)|
+| **10-14**  | **Amostragem por Conglomerados**                      | - Definição de conglomerado                              |
 |            |                                                       | - Eficiência da amostragem por conglomerados             |
 |            |                                                       | - Amostragem por conglomerados em uma etapa              |
 |            |                                                       | - Comparação entre conglomerados de tamanhos diferentes  |
-| **12**     | **Prática  - Parte 2**                                | - Prática: Amostragem Estratificada                      |
-|            |                                                       | - Prática: Amostragem conglomerados                      |
-| **12**     | **Prova 2**                                           | - Avaliação dos tópicos abordados até a data             |
-| **13-14**  | **Amostragem Sistemática (AS)**                       | - Descrição do plano amostral AS                         |
-|            |                                                       | - Seleção de uma amostra sistemática                     |
 |            |                                                       | - Comparação AS com amostragem por conglomerado          |
 |            |                                                       | - Estimação da média e variância da média amostral       |
+| **14**     | **Prova 2**                                           | - Avaliação dos tópicos abordados até a data             |
 | **15 **    | **Estudo de caso**                                    | - Estudo de caso de pesquisa em amostragem e tecnologia  |
-| **16**     | **Prática  - Parte 3**                                | - Prática: Amostragem Sistemática                        |
 | **16 **    | **Prova 3 - Projeto**                                 | - Avaliação dos tópicos abordados até o momento          |
-| **17**     | **2a chamada**                                        | - Avaliação escrita de todos os tópicos                  |
+| **16**     | **2a chamada**                                        | - Avaliação escrita de todos os tópicos                  |
 </center>
 ***
 

@@ -1,0 +1,257 @@
+---
+documentclass: extarticle
+classoption: landscape
+title: "Amostragem (MATD44)"
+subtitle:  "Estudo dirigido"
+geometry: margin=0.7in
+fontsize: 11pt
+mainfont: Cambria
+author: 
+  - Raydonal Ospina <a href='mailto:raydonal@castlab.org'> `r fontawesome::fa(name = 'envelope-circle-check', fill = 'darkgreen')`</a>
+output: 
+  html_document: 
+        theme: yeti
+        css:  config/StyleHomework.css
+  pdf_document: 
+    keep_tex: yes
+lang: pt
+# bibliography: refs.bib
+link-citations: yes
+linkcolor: blue
+---
+
+# Objetivo
+
+Reproduzir alguns exemplos de sala de aula usando o apcote `survey` do `R`
+
+```{r setup, include=FALSE}
+library(survey)
+```
+
+### Introdução aos Dados API
+```{r}
+data(api)
+help("api")
+
+# O Índice de Desempenho Acadêmico é calculado para todas as escolas da Califórnia com base em testes padronizados de alunos. 
+# Os conjuntos de dados contêm informações para todas as escolas com pelo menos 100 alunos e para várias amostras probabilísticas dos dados.
+
+# Os dados populacionais completos no apipop são um quadro de dados com 6.194 observações sobre as 37 variáveis a seguir.
+head(apipop, 6) # Informações das primeiras 6 observações do nosso conjunto de dados
+summary(apipop) # Resumo dos dados. Note que há dados faltantes.
+```
+
+### Amostragem Aleatória Simples (AAS)
+```{r}
+# Realizemos uma amostragem AAS de escolas públicas de tamanho 100
+set.seed(31416) # Fixa a semente para reprodução
+N = dim(apipop)[1]
+n = 1000
+index.1 = sample(N, n)
+sample.1 = apipop[index.1, ]
+
+# Para efeito de expansão criamos uma nova base de dados com os tamanhos de amostra e as probabilidades de inclusão
+aux = data.frame(fpc = rep(N, n), pp = rep(n/N, n))
+sample.1 = cbind(sample.1, aux)
+
+head(sample.1, 4) # Visualização das primeiras 4 observações da amostra
+
+# Agora vamos introduzir estes metadados no objeto adequado para o survey design
+diseAAS = svydesign(ids = ~1, fpc = ~fpc, data = sample.1)
+summary(diseAAS) # Resumo do plano amostral
+```
+
+### Amostragem Aleatória Simples com Substituição
+```{r}
+set.seed(12345)
+sample.2 = apipop[sample(N, n, replace = TRUE), ]
+sample.2 = cbind(sample.2, aux)
+
+# Especificar um plano amostral complexo - svydesign com substituição
+diseAASc = svydesign(ids = ~1, probs = ~pp, data = sample.2)
+summary(diseAASc) # Resumo do plano amostral com substituição
+```
+
+### Estimação de Parâmetros Populacionais
+```{r}
+# Estimar o total de alunos matriculados, proporção por tipo de escola, médias e diferença de médias do API entre 1999 e 2000 usando os dois planos amostrais anteriores
+
+# Estimação do total de matriculados
+svytotal(~enroll, diseAAS, na.rm = TRUE) # Corrigir dados faltantes
+
+# Estimação das médias
+svymean(~stype, diseAAS)
+
+# Estimação das médias por ano
+means.1 = svymean(~api00 + api99, diseAAS)
+means.1 
+
+# Estimação da diferença (contraste)
+svycontrast(means.1, c(api00 = 1, api99 = -1))
+
+# Agora vejamos o que acontece com uma amostragem com substituição
+
+# Estimação do total de matriculados
+svytotal(~enroll, diseAASc, na.rm = TRUE) # Corrigir dados faltantes
+
+# Estimação das médias
+svymean(~stype, diseAASc)
+
+# Estimação das médias por ano
+means.1 = svymean(~api00 + api99, diseAASc)
+means.1 
+
+# Estimação da diferença (contraste)
+svycontrast(means.1, c(api00 = 1, api99 = -1))
+```
+
+## Dados Penitenciários do Peru - Censo Nacional Penitenciário de 2016
+
+Informações sobre  o 	Censo Nacional de Población Penitenciaria 2016 no Perú ver [aqui](https://proyectos.inei.gob.pe/microdatos/). 
+
+O dados [aqui](cp16.RData).
+```{r, warning=FALSE}
+library(foreign)
+cp16b = load("cp16.RData")
+# cp16 = as.data.frame(cp16b)
+# cp16_labels = attr(cp16b, "variable.labels")
+# cp16_cat = attr(cp16b, "label.table")
+# save(cp16, file = "cp16.RData")
+head(cp16[, 1:8]) # Visualização das primeiras 18 colunas
+```
+
+### Amostragem AAS para Estimar a Idade Média dos Internos
+```{r, warning=FALSE}
+set.seed(31416)
+N = dim(cp16)[1] # 76180 registros
+numerador = 1.96^2 * 0.5 * (1 - 0.5) * 76180
+denominador = 1.96^2 * 0.5 * (1 - 0.5) + 0.03^2 * 76180
+n = ceiling(numerador / denominador) # Tamanho de amostra
+index = sample(N, n)
+sample = cp16[index, ]
+diseAAS = svydesign(id = ~1, fpc = rep(N, n), data = sample)
+summary(diseAAS)
+
+# Estimação da idade média
+svymean(~EDAD, diseAAS, na.rm = TRUE) # Idade média na população
+mean(cp16$EDAD, na.rm = TRUE)
+
+# Proporção de internos sentenciados
+svymean(~SITUACION_JURIDICA, diseAAS) # Proporção de internos sentenciados na população
+length(cp16$SITUACION_JURIDICA[cp16$SITUACION_JURIDICA == "Procesado"]) / N
+length(cp16$SITUACION_JURIDICA[cp16$SITUACION_JURIDICA == "Sentenciado"]) / N
+
+# Existe relação entre estado civil e tipo de delito?
+DGEN = as.factor(cp16$DEL_GENERICO_CD)
+levels(DGEN)[c("01", "02", "03", "04", "05", "07", "08", "09", "11", "14", "16", "17", "18", "19")] = "OUTROS"
+DGEN = DGEN[index]
+DGEN = factor(DGEN, levels(DGEN)[c(2, 3, 4, 5, 1)])
+chisq.test(DGEN, sample$E_CIVIL)
+# Não há evidência de associação entre estado civil e tipo de delito
+```
+
+### Amostragem Estratificada com a Base de Dados API
+```{r}
+data(api)
+attach(apipop)
+table(stype) # Tipo de colégio
+set.seed(1357)
+
+index = c(
+  sample(which(stype == "E"), 100), 
+  sample(which(stype == "H"), 50),
+  sample(which(stype == "M"), 50)
+)
+
+sample1 = apipop[index, ]
+
+# Construção da base de dados auxiliar contendo os pesos da amostragem, os tamanhos dos estratos e o fator de correção por finitude
+aux = data.frame(
+  pw = c(rep(44.21, 100), rep(15.1, 50), rep(20.36, 50)), 
+  fpc = c(rep(4421, 100), rep(755, 50), rep(1018, 50))
+)
+sampleMAE = cbind(sample1, aux)
+
+# Amostragem aleatória simples estratificada
+disAASE = svydesign(id = ~1, strata = ~stype, fp = ~fpc, data = sampleMAE)
+summary(disAASE)
+
+# Estimação do total de matriculados
+svytotal(~enroll, disAASE, na.rm = TRUE)
+
+# Média do índice API para 1999 e 2000
+svymean(~api99 + api00, disAASE)
+
+# Estimação de domínios
+Nh = c(4421, 755, 1018) # Tamanho dos estratos
+nh = c(100, 50, 50) # Tamanho de amostra dos estratos
+disAASE = update(disAASE, cemer = as.integer(emer > 0), apicemer = api00 * cemer)
+Nd_e = as.numeric(svytotal(~cemer, disAASE))
+taud_e = as.numeric(svytotal(~apicemer, disAASE))
+Ybard_e = taud_e / Nd_e
+zh = (sampleMAE$api00 - Ybard_e) * (sampleMAE$emer > 0)
+sigma2zh = as.vector(by(zh, sampleMAE$stype, sd, na.rm = TRUE))^2
+sed_e = sqrt(sum(Nh^2 * (1 - nh / Nh) * sigma2zh / nh) / Nd_e^2)
+
+# De forma mais simples
+discemer = subset(disAASE, cemer == 1)
+svymean(~api00, discemer)
+
+# De forma geral para os domínios em estudo
+mdom = svyby(~api00, ~cemer, disAASE, svymean)
+mdom
+```
+# Atividade
+Reproduzir e propor estimadores do total populacional e da média populacional da variável de interesse ( QI ) sobre diferentes planos amostrais usando os dados simulados a seguir. Deverá usar amostragem com planos amostrais com e sem  estratificação (tipo de cientista). determine tamanhos de amostra adequados para cada esquema amostral. faça as suposições necessárias para os cálculos de tamanho de amostra.
+
+```{r, warning=FALSE}
+# Definir a semente para reproduzibilidade
+set.seed(123)
+
+# Simulação de QI  de cientistas de dados com diferentes cores
+n_individuos <- 500
+individuos <- data.frame(
+  indice = 1:n_individuos,
+  QI = rbeta(n_individuos, 8,4),
+  cientista = sample(c("Estatística", "Computação", "Matemática"), 
+               size = n_individuos, replace = TRUE)
+)
+
+summary(individuos)
+
+# Média da população e da amostra
+media_populacao <- mean(individuos$QI)
+tamanho_amostra <- 100
+
+# Aqui usamos um AAS sem reposição
+amostra <- individuos[sample(nrow(individuos), size = tamanho_amostra), ]
+media_amostra <- mean(amostra$QI)
+
+library(ggplot2)
+library(gridExtra)
+# Plot da população completa
+p_populacao <- ggplot(individuos, aes(x = indice, y = QI, color = cientista)) +
+  geom_point() +
+  labs(title = "População", x = "Indivíduo", y = "QI")
+
+# Plot da amostra selecionada
+p_amostra <- ggplot(amostra, aes(x = indice, y = QI, color = cientista)) +
+  geom_point() +
+  labs(title = "Amostra",  x = "Indivíduo", y = "QI")
+
+
+# Gráfico de densidade da população
+p_populacao_densidade <- ggplot(individuos, aes(x = QI, fill = cientista)) +
+  geom_density(alpha = 0.6) +
+  geom_vline(xintercept = media_populacao, color = "blue", linetype = "dashed", size = 1, alpha = 0.6) +
+  labs(title = "População", x = "QI", y = "Densidade")
+
+# Gráfico de densidade da amostra
+p_amostra_densidade <- ggplot(amostra, aes(x = QI, fill = cientista)) +
+  geom_density(alpha = 0.6) +
+  geom_vline(xintercept = media_populacao, color = "blue", linetype = "dashed", size = 1, alpha = 0.6) +
+  geom_vline(xintercept = media_amostra, color = "red", linetype = "dashed", size = 1) +
+  labs(title = "Amostra", x = "QI", y = "Densidade") 
+
+ grid.arrange(p_populacao, p_amostra, p_populacao_densidade, p_amostra_densidade, ncol = 2)
+```
