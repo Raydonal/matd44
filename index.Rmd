@@ -140,11 +140,11 @@ das 8:50 às 10:40 horas <font color="blue">(TURMA T01)</font> na sala 219 do PA
 A avaliação tem como objetivo ajudar ao aluno a progredir nas suas aprendizagens e serve também para estabelecer os resultado dos conhecimentos e das competências adquiridas nos diferentes momentos do período acadêmico. A avaliação também contribui para a qualidade do sistema de ensino. Desta forma, os critérios de avaliação para este curso são:
 
 
-| Avaliação | Porcentagem  |	Data da Prova (tentativa)|
+| Avaliação | Porcentagem  |	Data da Prova |
 |:-----------:|:-------------:|:-----------------:|
 | Prova 1 |    35% 	    |     02/05/2024  |
-| Prova 2 |    35% 	    |     08/08/2024  |
-| Prova 3 |    30% 	    |     05/09/2024  |
+| Prova 2 |    35% 	    |     20/08/2024  |
+| Prova 3 |    30% 	    |     03/09/2024  |
 
 
 A avaliação será constituída pela nota das provas (que podem consistir em projetos, listas de exercicios e/ou projetos a depender do desempenho e participação da turma). O grau atribuído ao aluno no final do curso será o da sua média global ponderada (média aritmética ponderada) entre as notas, i.e.,
@@ -191,7 +191,7 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 |            |                                                       | - Alocação da amostra e comparação com AAS               |
 |            |                                                       | - Intervalos de confiança                                |
 | **9**      | **Estudo dirigido**                                   | - Prática no `R`. Uso do pacote `survey` [[Rmarkdow]](Material/Pratica.html)|
-| **10-14**  | **Amostragem por Conglomerados**                      | - Definição de conglomerado                              |
+| **10-13**  | **Amostragem por Conglomerados**                      | - Definição de conglomerado                              |
 |            |                                                       | - Eficiência da amostragem por conglomerados             |
 |            |                                                       | - Amostragem por conglomerados em uma etapa              |
 |            |                                                       | - Comparação entre conglomerados de tamanhos diferentes  |
@@ -357,13 +357,28 @@ O material de apoio será distribuído ao longo do curso. Esse material pode inc
   + Bolfarine & Bussab (2005),  Exercícios: 1.1, 1.3, 1.6, 1.11, 1.13, 2.1, 2.2, 2.6
   + Tillé (2020). Exercícios: 2.1, 2.2,2.3, 2.4
   + Särndal (2003). Exercícios: 2.1, 2.2, 2.3, 2.5
+  
+<font color="purple"> - Lista de exercícios II - </font> 
+
+  + Tillé (2020). Exercícios: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.8
+
+<font color="purple"> - Lista de exercícios III - </font> 
+
+  + Tillé (2020). Exercícios: 7.1, 7.2, 7.3
+  
 
 <!-- * <font color="pink"> - Lista - Exercicios - </font> [[Aqui]](Material/Lista_1_MATD44_2023_2.pdf) -->
 
 <!-- * <font color="pink">- Prova I - </font>  [[Aqui]](Material/UFBA_MATD44_Amostragem_Prova_I.pdf) - [[Gabarito]](Scripts/GabaritoProvaI.pdf) -->
 
+***
+### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> <font color="red"> Provas </font> </u> 
 
-<!-- * <font color="red">- Projeto Final - </font>  [[Aqui]](Projeto/Projeto.html)  -->
+* <font color="red">- Prova I - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_I.pdf)
+
+* <font color="red">- Prova II - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_II.pdf)
+
+* <font color="red">- Prova III - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_III.pdf). Dados prova III [[Aqui]](Provas/PPM-29-de-Ago.xlsx)
 
 <!-- * Prezado aluno, recomendo <font color="red">fortemente</font> fazer todos os exercícios propostos das Apostilas (Unidade - I, II e III para treinamento e afixar conhecimento). -->
 <!-- * Alunos com dificuldades de cálculo recomendo revisar fortemente notas de Cálculo I e o material audiovisual da USP [e-Aulas] (https://eaulas.usp.br/portal/). Lá encontraram uma série de conteúdos de fácil assimilação com notas explicativas e exercícios resolvidos  (Aproveitem!!!) -->
