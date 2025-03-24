@@ -107,7 +107,7 @@ p_amostra_densidade <- ggplot(amostra, aes(x = QI, fill = cientista)) +
 <h4>
 # PLANO DE ENSINO - APRENDIZAGEM DO COMPONENTE  CURRICULAR
 
-### Semestre 2024.1	
+### Semestre 2025.1	
 </h4>
 
 <!-- * **Carga horaria:** 60 horas/Aula. -->
@@ -116,15 +116,15 @@ p_amostra_densidade <- ggplot(amostra, aes(x = QI, fill = cientista)) +
 * **Contato:** raydonalmartinez@ufba.br
 * **Ementa do curso:** [MATD44](Configuracoes/matd44_amostragem_a.pdf) Teoria estatística da amostragem. Critérios para a elaboração de um delineamento amostral. Amostragem aleatória simples. Amostragem aleatória estratificada. Amostragem sistemática. Noções de Amostragem por conglomerados.
 * **Local e horário da disciplina:** As aulas serão ministradas às terças e quintas feiras
-das 8:50 às 10:40 horas <font color="blue">(TURMA T01)</font> na sala 219 do PAF I (PAF - Pavilhão de Aulas da Federação I - Av. Barão de Geremoabo - s/n - Ondina - Campus de Ondina).
+das 8:50 às 10:40 horas <font color="blue">(TURMA T01)</font> na sala 215 do PAF I (PAF - Pavilhão de Aulas da Federação I - Av. Barão de Geremoabo - s/n - Ondina - Campus de Ondina).
 * **Atenção aos estudantes:** Reunião virtual via google-meet ou reunião presencial com prévio agendamento. O local de atendimento presencial será em alguma sala disponível no Departamento de Estatística da UFBA.
 
 * *<font color="red">Nota:</font> O atendimento somente será realizado com agendamento prévio. Caro aluno, eu sou uma pessoa bastante ocupada e meu tempo, assim como o seu, é muito valioso.  Use o tempo que você gastar comigo de forma eficiente. De preferência já traga anotações e perguntas já elaboradas. Seja pontual. Sempre.*
     
-* **Inicio do curso:** 12 de março de 2024.
+* **Inicio do curso:** 25 de março de 2025.
 
-* **Último dia das aulas:** 12/07/2024 (Mudanças desta data obedeceram os direcionamentos da adiministração central da UFBA no calendário acadêmico da UFBA)
-* **Período de realização de segunda chamada:** A combinar.
+<!-- * **Último dia das aulas:** 12/07/2024 (Mudanças desta data obedeceram os direcionamentos da adiministração central da UFBA no calendário acadêmico da UFBA) -->
+<!-- * **Período de realização de segunda chamada:** A combinar. -->
 
 * **Pré-requisitos:** MATD42 - Inferência A. A disciplina também requer conhecimentos sólidos de algebra
 
@@ -142,16 +142,16 @@ A avaliação tem como objetivo ajudar ao aluno a progredir nas suas aprendizage
 
 | Avaliação | Porcentagem  |	Data da Prova |
 |:-----------:|:-------------:|:-----------------:|
-| Prova 1 |    35% 	    |     02/05/2024  |
-| Prova 2 |    35% 	    |     20/08/2024  |
-| Prova 3 |    30% 	    |     03/09/2024  |
+| Atividade 1 |    30% 	    |     A definir  |
+| Atividade 2 |    30% 	    |     A definir  |
+| Atividade 3 |    40% 	    |     A definir  |
 
 
-A avaliação será constituída pela nota das provas (que podem consistir em projetos, listas de exercicios e/ou projetos a depender do desempenho e participação da turma). O grau atribuído ao aluno no final do curso será o da sua média global ponderada (média aritmética ponderada) entre as notas, i.e.,
+A avaliação será constituída pela nota das atividades (que podem consistir em provas, listas de exercicios e/ou projetos a depender do desempenho e participação da turma). O grau atribuído ao aluno no final do curso será o da sua média global ponderada (média aritmética ponderada) entre as notas, i.e.,
 
 <center>
 <h3>
-    M = (0.35 * Prova 1)+(0.35 * Prova 2)+(0.3 * Prova 3).
+    M = (0.3 * Atividade 1)+(0.3 * Atividade 2)+(0.4 * Atividade 3).
 </h3>
 </center>
 
@@ -162,7 +162,7 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
     
 * **Nota:** Não haverá escalonamento de notas. 
     
-* **Nota:** A prova de 2a chamada é destinada exclusivamente para aqueles que não apresentarem uma (unicamente uma) prova e para tal será necessária a apresentação de alguma justificativa comprovável, como por exemplo, atestado médico ou de trabalho. A prova de 2a chamada cobrirá todo o conteúdo da disciplina. 
+<!-- * **Nota:** A prova de 2a chamada é destinada exclusivamente para aqueles que não apresentarem uma (unicamente uma) prova e para tal será necessária a apresentação de alguma justificativa comprovável, como por exemplo, atestado médico ou de trabalho. A prova de 2a chamada cobrirá todo o conteúdo da disciplina.  -->
 
 ***
 
@@ -184,9 +184,8 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 |            |                                                       | - Tamanho de amostra para precisão pré-fixada            |
 | **5-6**  | **Amostragem Sistemática (AS)**                       | - Descrição do plano amostral AS                         |
 |            |                                                       | - Seleção de uma amostra sistemática                     |
-| **6**      | **Prova 1**                                           | - Avaliação dos tópicos abordados até a data             |
-| **Greve**  | *29/04/2024 - 27/06/2024*                             |                                                          |
-| **8**    | **Amostragem Aleatória Estratificada (AE)**             | - AE: definições e notações                              |
+| **6**      | **Atividade 1**                                           | - Atividade avaliativa             |
+| **7-8**    | **Amostragem Aleatória Estratificada (AE)**             | - AE: definições e notações                              |
 |            |                                                       | - Estimadores da média, total e proporção populacional   |
 |            |                                                       | - Alocação da amostra e comparação com AAS               |
 |            |                                                       | - Intervalos de confiança                                |
@@ -197,32 +196,33 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 |            |                                                       | - Comparação entre conglomerados de tamanhos diferentes  |
 |            |                                                       | - Comparação AS com amostragem por conglomerado          |
 |            |                                                       | - Estimação da média e variância da média amostral       |
-| **14**     | **Prova 2**                                           | - Avaliação dos tópicos abordados até a data             |
+| **14**     | **Atividade 2**                                           | - Atividade avaliativa             |
 | **15 **    | **Estudo de caso**                                    | - Estudo de caso de pesquisa em amostragem e tecnologia  |
-| **16 **    | **Prova 3 - Projeto**                                 | - Avaliação dos tópicos abordados até o momento          |
-| **16**     | **2a chamada**                                        | - Avaliação escrita de todos os tópicos                  |
+| **16 **    | **Estudo de caso**                                | - Avaliação dos tópicos abordados até o momento          |
+| **16**     | **Atividade 3**                                        | - Atividade avaliativa|
 </center>
 ***
 
 #### Referências bibliográficas (Principal)
 
-1. [[TILLÉ, Yves.]](Material/Sampling-finite-population.pdf). **Sampling and estimation from finite populations.** John Wiley & Sons, 2020.
+1. [[TILLÉ, Yves.]](Material/Sampling-finite-population.pdf). **Sampling and estimation from finite populations.** John Wiley & Sons, 2020. (Livro principal I)
 
-2. [[Bolfarine, H. e Bussab, W. O.]](Material/Busab.pdf). **Elementos de Amostragem**. Editora Edgard Blücher, 2005
+2. [[Särndal, Carl-Erik, Bengt Swensson, and Jan Wretman.]](Material/Sarndal.pdf) **Model assisted survey sampling.** Springer Science & Business Media, 2003. (Livro principal II)
 
-3. Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias. **Amostragem: Teoria e Prática Usando R**. Disponível [aqui](https://amostragemcomr.github.io/livro/) (Top), 2020.
+3. [[Bolfarine, H. e Bussab, W. O.]](Material/Busab.pdf). **Elementos de Amostragem**. Editora Edgard Blücher, 2005. (Livro principal III)
 
-4. MORETTIN, Pedro A.; SINGER, Julio M. **Introdução à Ciência de Dados Fundamentos e Aplicações**. Versão parcial preliminar agosto 2019. Disponível [aqui](https://www.ime.usp.br/\~jmsinger/MAE5755/cdados2019ago06.pdf), 2019.
+4. Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias. **Amostragem: Teoria e Prática Usando R**. Disponível [aqui](https://amostragemcomr.github.io/livro/), 2020.
 
-5. [[LEWIS, Taylor]](Material/Lewis.pdf). **Complex survey data analysis with SAS**. CRC Press, 2016.
+5. MORETTIN, Pedro A.; SINGER, Julio M. **Introdução à Ciência de Dados Fundamentos e Aplicações**. Versão parcial preliminar agosto 2019. Disponível [aqui](https://www.ime.usp.br/\~jmsinger/MAE5755/cdados2019ago06.pdf), 2019.
 
-6. [[TILLÉ, Yves]](Material/Sampling-Algorithms.pdf). **Sampling algorithms**. Springer New York, 2006.
+6. [[LEWIS, Taylor]](Material/Lewis.pdf). **Complex survey data analysis with SAS**. CRC Press, 2016.
 
-7. [[Bakerman, Jordan]](Material/sas-programming-for-r-users.pdf). **SAS ® Programming for R Users**. SAS Institute Inc., SAS, 2019.
+7. [[TILLÉ, Yves]](Material/Sampling-Algorithms.pdf). **Sampling algorithms**. Springer New York, 2006. 
 
-8. [[Lohr, Sharon]](Material/Sampling-Design.pdf). **Sampling: design and analysis**. Chapman and Hall/CRC, 2021.
+8. [[Bakerman, Jordan]](Material/sas-programming-for-r-users.pdf). **SAS ® Programming for R Users**. SAS Institute Inc., SAS, 2019.
 
-9. [[Särndal, Carl-Erik, Bengt Swensson, and Jan Wretman.]](Material/Sarndal.pdf) **Model assisted survey sampling.** Springer Science & Business Media, 2003.
+9. [[Lohr, Sharon]](Material/Sampling-Design.pdf). **Sampling: design and analysis**. Chapman and Hall/CRC, 2021.
+
 
 ***
 
@@ -292,6 +292,9 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 
 ### Material de apoio 
 
+O material de apoio será distribuído ao longo do curso. Esse material pode incluir, livros, slides de aula, scripts para reprodução, artigos científicos, artigos dedivulgação, entre outros.
+
+
 * <font color="purple">  Hansen, M. H., & Hurwitz, W. N. (1943).</font> On the theory of sampling from finite populations. The Annals of Mathematical Statistics, 14(4), 333-362.  [[Artigo]](Papers/Hansen-TheorySamplingFinite-1943.pdf)
 
 * <font color="purple"> Hansen, M. H., & Hurwitz, W. N. (1949).</font> On the determination of optimum probabilities in sampling. The Annals of Mathematical Statistics, 426-432. [[Artigo]](Papers/Hansen-DeterminationOptimumProbabilities-1949.pdf)
@@ -309,7 +312,6 @@ A avaliação será constituída pela nota das provas (que podem consistir em pr
 <!-- *  [Apostila Unidade - III - ](Material/Apostila-3.pdf) Material elaborado pelas professoras: Giovana Silva, Lia Moraes, Rosana Castro e Rosemeire Fiaccone. Revisada em 2010.2 - Monitora: Tatiana Felix da Matta. Revisada em 2013.1 - Profas Gecynalda Gomes e Silvia Regina. Revisada em 2014.1 - Profa Silvia Regina.   Revisada em 2017.2 - Profas Giovana Silva e Verônica Lima. Revisada em 2017.2 - Monitores: Ícaro Augusto e Matheus Borges. -->
 
 <!-- *** -->
-O material de apoio será distribuído ao longo do curso. Esse material pode incluir, livros, slides de aula, scripts para reprodução, artigos científicos, artigos dedivulgação, entre outros.
 
 <!-- **Slides** -->
 
@@ -348,7 +350,7 @@ O material de apoio será distribuído ao longo do curso. Esse material pode inc
 
 ***
 
-### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> Atividades </u> 
+### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> Listas </u> 
 
 <!-- * <font color="pink">- Aula virtual- </font> Por motivos de segurança a aula do dia 05/09/2023 será realizada de forma virtual. Detalhes da conexão se encontram no e-mail encaminhado. -->
 
@@ -372,13 +374,13 @@ O material de apoio será distribuído ao longo do curso. Esse material pode inc
 <!-- * <font color="pink">- Prova I - </font>  [[Aqui]](Material/UFBA_MATD44_Amostragem_Prova_I.pdf) - [[Gabarito]](Scripts/GabaritoProvaI.pdf) -->
 
 ***
-### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> <font color="red"> Provas </font> </u> 
+<!-- ### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> <font color="red"> Provas </font> </u>  -->
 
-* <font color="red">- Prova I - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_I.pdf)
+<!-- * <font color="red">- Prova I - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_I.pdf) -->
 
-* <font color="red">- Prova II - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_II.pdf)
+<!-- * <font color="red">- Prova II - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_II.pdf) -->
 
-* <font color="red">- Prova III - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_III.pdf). Dados prova III [[Aqui]](Provas/PPM-29-de-Ago.xlsx)
+<!-- * <font color="red">- Prova III - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_III.pdf). Dados prova III [[Aqui]](Provas/PPM-29-de-Ago.xlsx) -->
 
 <!-- * Prezado aluno, recomendo <font color="red">fortemente</font> fazer todos os exercícios propostos das Apostilas (Unidade - I, II e III para treinamento e afixar conhecimento). -->
 <!-- * Alunos com dificuldades de cálculo recomendo revisar fortemente notas de Cálculo I e o material audiovisual da USP [e-Aulas] (https://eaulas.usp.br/portal/). Lá encontraram uma série de conteúdos de fácil assimilação com notas explicativas e exercícios resolvidos  (Aproveitem!!!) -->
@@ -401,7 +403,7 @@ O material de apoio será distribuído ao longo do curso. Esse material pode inc
 
 ***
 <!-- ###### Este documento foi gerado através de um arquivo [R Markdown](http://rmarkdown.rstudio.com/). Markdown é uma linguagem simples de formatação que permite produzir documentos HTML, PDF e MS Word, de forma eficiente.   -->
-###### Content Copyright &copy; 2024 Raydonal Ospina Martínez. All Rights Reserved.
+###### Content Copyright &copy; 2025 Raydonal Ospina Martínez. All Rights Reserved.
 
 
 <!-- https://cales.arizona.edu/~anling/STAT574/notes.htm -->
