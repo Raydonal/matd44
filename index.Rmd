@@ -261,19 +261,19 @@ A avaliação será constituída pela nota das atividades (que podem consistir e
 
 ##### Sobrea as aulas
 
-*São reuniões cientificas e profissionais onde são discutidos temas de relevância para a formação pessoal, social e profissional. Portanto é esperado que o aluno chegue sem atraso, não entre na sala abruptamente, não sai da sala durante a discussão, respeite as intervenções do professor e/ou colega(s), não fume (Lei Federal), não use o celular e não promova a destruição de bens públicos, entre outros.*
+*São reuniões cientificas e profissionais onde são discutidos temas de relevância para a formação pessoal, social e profissional. Portanto é esperado que o aluno chegue sem atraso, não entre na sala abruptamente, não sai da sala durante a discussão, respeite as intervenções do professor e/ou colega(s), não fume (Lei Federal), não use o celular (caso precisar pode se retirar da sala)  e não promova a destruição de bens públicos, entre outros.*
 
 ##### Sobre honestidade acadêmica
 
 *Honestidade e confiança são importantes para todos nós como indivíduos. Neste sentido, os membros da comunidade acadêmica tanto como professores e alunos têm a responsabilidade de manter e promover os princípios da verdade e honestidade acadêmica. Assim, a honestidade acadêmica pressupõe que todos os trabalhos, provas e testes sejam frutos do trabalho individual do aluno salvo os casos onde o professor tenha dado permissão expressa e instruções para a realização de atividades em grupo.*
 
-##### Sobre o plágio
+<!-- ##### Sobre o plágio -->
 
-*Constitui desonestidade acadêmica e constitui uma grave falta acadêmica, pois destrói o princípio fundamental de confiança que deve existir no processo de transmissão de conhecimento em atividades de pesquisa e ensino. Não constitui defesa no caso de detecção de plágio que o ato tenha sido feito por negligência ou sem a intenção do aluno. A ausência de intenção pode diminuir a pena imposta, mas não serve como desculpa para o ato. Alunos devem, portanto, ter muito cuidado para evitar o plágio. Se tiver alguma dúvida sobre plágio, citação de passagens de texto, uso de ideias de terceiros ou colaborações com colegas em suas atividades acadêmicas, recomendo que  o aluno procure orientação de um professor ou coordenador acadêmico. (Fonte: Tomado de http://www.ibmecsp.edu.br/biblioteca).*
+<!-- *Constitui desonestidade acadêmica e constitui uma grave falta acadêmica, pois destrói o princípio fundamental de confiança que deve existir no processo de transmissão de conhecimento em atividades de pesquisa e ensino. Não constitui defesa no caso de detecção de plágio que o ato tenha sido feito por negligência ou sem a intenção do aluno. A ausência de intenção pode diminuir a pena imposta, mas não serve como desculpa para o ato. Alunos devem, portanto, ter muito cuidado para evitar o plágio. Se tiver alguma dúvida sobre plágio, citação de passagens de texto, uso de ideias de terceiros ou colaborações com colegas em suas atividades acadêmicas, recomendo que  o aluno procure orientação de um professor ou coordenador acadêmico. (Fonte: Tomado de http://www.ibmecsp.edu.br/biblioteca).* -->
 
-##### Sobre desonestidade acadêmica
+<!-- ##### Sobre desonestidade acadêmica -->
 
-*Desonestidade acadêmica inclui colar em provas e testes, plágio e/ou qualquer adulteração no desenvolvimento de um trabalho ou pesquisa acadêmica. O plágio ocorre quando o aluno e/ou professor apresenta o trabalho de outra pessoa como se fosse seu sem citar a fonte de maneira apropriada. A única exceção à regra de citar adequadamente as fontes ocorre quando informações ou ideias são do senso comum. O plágio inclui, mas não se limita a, apresentar um trabalho obtido de um serviço profissional de redação (inclusive da Internet); citar diretamente ou parafrasear uma passagem de texto sem citar a fonte; e utilizar figuras, gráficos e tabelas sem identificar as fontes. Solicitações inapropriadas não serão admissíveis nesse curso, portanto evite-se constrangimentos. O aluno que agir de modo contrário à ética e honestidade acadêmica receberá forte penalização e será reportado oficialmente à coordenação do curso.*
+<!-- *Desonestidade acadêmica inclui colar em provas e testes, plágio e/ou qualquer adulteração no desenvolvimento de um trabalho ou pesquisa acadêmica. O plágio ocorre quando o aluno e/ou professor apresenta o trabalho de outra pessoa como se fosse seu sem citar a fonte de maneira apropriada. A única exceção à regra de citar adequadamente as fontes ocorre quando informações ou ideias são do senso comum. O plágio inclui, mas não se limita a, apresentar um trabalho obtido de um serviço profissional de redação (inclusive da Internet); citar diretamente ou parafrasear uma passagem de texto sem citar a fonte; e utilizar figuras, gráficos e tabelas sem identificar as fontes. Solicitações inapropriadas não serão admissíveis nesse curso, portanto evite-se constrangimentos. O aluno que agir de modo contrário à ética e honestidade acadêmica receberá forte penalização e será reportado oficialmente à coordenação do curso.* -->
 
 ##### Sobre profissionalismo
 
@@ -400,6 +400,9 @@ O material de apoio será distribuído ao longo do curso. Esse material pode inc
 
 
 <!-- * <font color="purple"> Prezado aluno, a prova I do dia 22/09/2022 será realizada da sala 109 do PAF V no horário habitual da aula. Caso haja alguma mudança deixarei algum recado na porta da sala. </font> -->
+### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> Desafios </u> 
+
+[<font color="red"> - Desafio I - </font>](Desafios/Desafio1.html)
 
 ***
 <!-- ###### Este documento foi gerado através de um arquivo [R Markdown](http://rmarkdown.rstudio.com/). Markdown é uma linguagem simples de formatação que permite produzir documentos HTML, PDF e MS Word, de forma eficiente.   -->

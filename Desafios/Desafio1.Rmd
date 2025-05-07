@@ -1,0 +1,60 @@
+---
+title: "Avaliações dos Desafios"
+output: html_document
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE} 
+library(readr)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# Carregar CSV separado por espaço
+dados <- read_delim("avaliacoes.csv", delim = " ", trim_ws = TRUE)
+
+# Função reutilizável para gerar bolinhas verdes
+gerar_bolinhas <- function(nota) {
+  cheia <- paste(rep("&#9679;", nota), collapse = " ")
+  vazia <- paste(rep("&#9675;", 5 - nota), collapse = " ")
+  paste0("<span style='color:green; font-size:1.2em;'>", cheia, " ", vazia, "</span>")
+}
+
+# Função que gera a tabela completa do desafio
+gera_tabela_desafio <- function(dados, coluna_desafio, titulo) {
+  dados %>%
+    select(aluno, nota = all_of(coluna_desafio)) %>%
+    mutate(Avaliação = sapply(nota, gerar_bolinhas)) %>%
+    select(Aluno = aluno, Avaliação) %>%
+    kable("html", escape = FALSE, align = "lc", caption = titulo) %>%
+    kable_styling("striped", full_width = FALSE) %>%
+    row_spec(0, bold = TRUE) %>%
+    row_spec(1:nrow(dados), extra_css = "border-bottom: none;") %>%
+    print()
+}
+```
+# Desafio 1  
+
+asdsadsad
+
+### Resultado 
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+gera_tabela_desafio(dados, "desafio1", "Resultado do Desafio 1")
+```
+
+# Desafio 2  
+
+asdsadsad
+
+### Resultado 
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+gera_tabela_desafio(dados, "desafio2", "Resultado do Desafio 2")
+```
+
+# Desafio 3  
+
+asdsadsad
+
+### Resultado 
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+gera_tabela_desafio(dados, "desafio3", "Resultado do Desafio 3")
+```
