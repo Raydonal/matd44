@@ -1,0 +1,133 @@
+---
+title: \"Projeto Criativo: Estimativa de Área Verde e Biomassa no Campus\"
+author: \"Nome do(s) Aluno(s)\"
+date: \"Data\"
+output:
+  html_document:
+---
+
+# Introdução
+
+Este projeto tem como objetivo desenvolver um plano amostral criativo para estimar a área total verde e a biomassa vegetal do campus universitário. A atividade visa proporcionar experiência prática com técnicas avançadas de amostragem complexa em um contexto real e estimulante.
+
+Vocês terão **três semanas** para elaborar, executar e relatar o projeto.
+
+## Objetivos Específicos
+
+- Desenvolver um plano amostral complexo e criativo para estimar a área verde e biomassa vegetal.
+- Realizar a coleta de dados com métodos quantitativos rigorosos.
+- Aplicar técnicas estatísticas adequadas para analisar os resultados.
+- Discutir os achados metodologicamente.
+
+## Instruções Gerais
+
+- Grupos: máximo de **3 alunos**.
+- Entrega: relatório detalhado escrito em RMarkdown.
+- O relatório deverá conter introdução, metodologia, resultados, discussão e conclusão.
+
+---
+
+# Plano Amostral Proposto
+
+Nesta seção, apresentem detalhadamente o plano amostral, incluindo:
+
+- Definição precisa da população-alvo (área verde do campus).
+- Definição clara das unidades amostrais (ex.: parcelas quadradas, faixas ou pontos aleatórios).
+- Escolha de técnicas de amostragem, como amostragem estratificada (por tipos de vegetação, localização geográfica, proximidade de construções), conglomerados (ex.: quadrantes do campus), sistemática ou adaptativa (ex.: áreas de maior densidade vegetal).
+- Justifiquem a escolha com base em critérios de viabilidade, precisão e eficiência.
+
+### Sugestões de técnicas para coleta:
+
+- Parcelas fixas de tamanhos pré-definidos (ex.: 5m x 5m).
+- Amostragem adaptativa em áreas com vegetação heterogênea.
+- Uso de drones ou imagens aéreas para auxiliar a localização de parcelas amostrais (opcional, mas incentivado).
+
+```{r, eval=FALSE}
+# Exemplo para planejamento inicial
+library(survey)
+# planejamento do desenho amostral (substitua pelos detalhes específicos do seu desenho)
+```
+
+---
+
+# Coleta de Dados
+
+Nesta seção detalhem:
+
+- Como definiram a localização exata das parcelas (uso de GPS, fita métrica, imagens aéreas).
+- Procedimentos específicos de coleta de biomassa (medição direta, estimativa visual, altura média das plantas, cobertura vegetal, método alométrico, etc.).
+- Registro fotográfico das áreas amostradas (opcional, mas fortemente recomendado).
+- Dificuldades práticas e soluções adotadas durante a coleta.
+
+```{r, eval=FALSE}
+# código para armazenamento de dados coletados
+dados_coletados <- data.frame(
+  id_parcela = c(),
+  latitude = c(),
+  longitude = c(),
+  area = c(),
+  biomassa = c(),
+  estrato = c()
+)
+```
+
+---
+
+# Metodologia Estatística
+
+Descrevam detalhadamente:
+
+- Tipo de estimador escolhido (Horvitz-Thompson, estimador razão, estimador regressão, etc.).
+- Justificativa técnica da escolha do estimador com referência bibliográfica adequada.
+- Como os pesos amostrais foram calculados.
+- Estratégias para verificar a qualidade dos dados coletados (consistência e coerência dos resultados).
+
+```{r, eval=FALSE}
+# Exemplo do uso do pacote survey
+# desenho <- svydesign(id=~id_parcela, strata=~estrato, data=dados_coletados, weights=~pesos)
+```
+
+---
+
+# Resultados
+
+Apresentem claramente:
+
+- Tabelas com estimativas pontuais da área verde e biomassa, acompanhadas dos intervalos de confiança.
+- Gráficos exploratórios (ex.: boxplot, histogramas, mapas das parcelas).
+
+```{r, eval=FALSE}
+# Exemplo gráfico
+library(ggplot2)
+ggplot(dados_coletados, aes(x=estrato, y=biomassa)) + geom_boxplot()
+```
+
+---
+
+# Discussão
+
+Nesta seção explorem:
+
+- Vantagens e limitações do plano amostral adotado.
+- Confiabilidade das estimativas obtidas.
+- Comparações possíveis com outros métodos alternativos.
+- Sugestões concretas para futuras pesquisas.
+
+---
+
+# Conclusão
+
+Sintetizem os principais resultados, destacando:
+
+- A importância prática e acadêmica da atividade realizada.
+- O aprendizado obtido ao lidar com problemas reais de amostragem complexa.
+
+---
+
+# Referências
+
+Apresentem as referências bibliográficas consultadas ao longo do desenvolvimento do projeto (livros, artigos científicos, relatórios técnicos).
+
+---
+
+**Bom trabalho e sejam criativos na exploração deste desafio!**

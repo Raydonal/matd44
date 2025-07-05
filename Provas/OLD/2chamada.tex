@@ -1,0 +1,203 @@
+% Desenvolvido por André Leite - DE - UFPE
+% Ajustes Raydonal Ospina - DE - UFPE/UFBA
+
+\documentclass[a4paper,11pt,oneside,twocolumn]{Config/milktest}
+
+%---------------------- customização ----------------------
+
+\input{Config/pacotes.tex}
+\input{Config/custom.tex} 
+
+%%%%%%%%%%%%%----- Header------%%%%%%%%%%%%%%%%%%%
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[scale=1.2]{Figuras/ufba.eps}}
+
+\fancypagestyle{milktablestyle}{
+    \fancyhead{}
+    \fancyfoot[C]{\thepage/\pageref{LastPage}} %
+}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[C]{
+\rput(0,2){
+  \begin{minipage}{1.75cm}\centering
+    \includegraphics[width=1.75cm]{Figuras/ufbaBlack.eps}
+  \end{minipage}~\hfill~\begin{minipage}{10cm}\Large\centering
+    \color{cor}{\scshape universidade federal da bahia}\\
+    {\scshape instituto de matemática e estatística}\\
+    {\scshape departamento de estatística}\\[10pt]
+    % Aqui as informações da prova e a data
+    {\Large\scshape  prova de 2da chamada --- mat 236\\ {\large 14 de dezembro de 2022}} 
+  \end{minipage}~\hfill~\begin{minipage}{1.75cm}\centering
+    \includegraphics[width=2.0cm]{Figuras/ufba.eps}
+  \end{minipage}
+  }}
+
+\fancyfoot[C]{\thepage/\pageref{LastPage}} % 
+
+%%%%%%%%%%%%%----- Header------%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+
+
+% %------------------------------------------------
+\beb
+{
+\begin{description}
+\item[Professor:] Raydonal Ospina
+\item[E-mail:] raydonalmartinez@ufba.br
+\item[Site do curso:] \url{https://castlab.org/courses/mat236/}
+
+\item[Regras:] Leia com atenção as perguntas. Todas as questões devem ser DETALHADAS. A prova deve ser claramente resolvida. Seja claro e organizado. Pode fazer uso da calculadora. É expressamente {\bf proibido} o uso do celular durante a prova.
+
+% \item[Atenção:] Responsa única e exclusivamente o número de questões {\bf suficientes} para completar 10 (dez) pontos.  Fique a vontade para escolher as perguntas que achar mais interessantes. Especifique sua escolha, por exemplo, 2(a). (isto quer dizer que você escolheu  o numeral (a) da questão 2).
+\end{description}
+}
+\eeb
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\balance
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip 
+\question~\textbf{[2pts]}  Estuda-se a relação linear entre duas variáveis observadas $x$ e $y$. Uma amostra de $20$ pares dessas variáveis forneceu os seguintes valores:
+$$
+\sum_{i=1}^{20} x_{i}= 600,\quad \sum_{i=1}^{20} y_{i}= 2150, 
+$$ 
+$$
+\sum_{i=1}^{20} x^{2}_{i}= 18.662,\quad \sum_{i=1}^{20} y^{2}_{i}= 235.270,
+$$ 
+$$
+\sum_{i=1}^{20} x_{i}y_{i}= 65.921
+$$
+Determine a correlação e ajuste uma reta aos dados.
+
+
+% \medskip 
+% \question~\textbf{[4pts]} Sobre o modelo de regressão linear simples, verifique se as alternativas a seguir são corretas ou falsas:
+% \begin{description}
+% \item [\ (a)]  Os estimadores do modelo de regressão linear simples minimizam a soma dos resíduos.
+% \item[ \ (b)] Um elevado coeficiente de determinação referente a um modelo de regressão linear simples para uma amostra não muito grande, não implica, necessariamente, que a reta de regressão passe próxima a todos os pontos amostrados e que o modelo esteja bem ajustado
+% \item[ \ (c)] Em um modelo linear simples a variância $\sigma^2$ e o valor esperado dos erros devem ser zero?
+% \item[ \ (d)] O modelo de regressão é ``linear'' porque é linear a relação entre o parâmetro de inclinação da variável independente e a variável resposta.
+% \end{description}
+
+
+
+
+% \medskip 
+% \question~\textbf{[3pts]} O resíduo em um modelo de regressão linear simples é definido como $r_i=y_i-\widehat{y_i},$ em que $\widehat{y_i}=\widehat{\beta_0}+\widehat{\beta_1}x_i,$ $i=1,\ldots,n$ 
+% \begin{description}
+%     \item [ \ (a)] $\sum_{i=1}^n r_i =0$
+%     \item [ \ (b)] $\sum_{i=1}^n y_i = \sum_{i=1}^n {\widehat y_i}$
+%     \item [ \ (c)] O resíduos são sempre independentes.
+% \end{description}
+
+
+
+% \medskip 
+% \question~\textbf{[4pts]} Consideremos a avaliação de associação linear entre  o tempo de reação $y_i$ do $i$-ésimo indivíduo e $x_i$ a sua respectiva idade. O ajuste do modelo aos dados forneceu a seguinte equação da reta estimada 
+% $${\widehat y}_i = 0,50 + 0,9 0x_i
+% \quad i=1,\ldots.n$$
+
+% Adicionalmente, a análise de variância (ANOVA) do  modelo de regressão ajustado pode ser resumida no seguinte quadro
+
+% \begin{center}
+% \begin{tabular}{cccccc} \hline
+% F. V.       & g.l. & S.Q.     & Q.M.    & F       \\ \hline
+% Regressão   & 1    & 810    & 810   & 25,90   \\ \hline
+% Resíduo     & 18   & 563    & 31,28 &         \\ \hline
+% Total       & 19   & 1.373  & 72,26 &         \\ \hline
+% \end{tabular}
+% \end{center}
+% em que $F\sim {\cal F}_{(1, n-2)}$ e para um nivel de significancia $\alpha=5\%$ temos que o quantil da distribuição  ${\cal F}(0.05)_{(1, 18)}$ é 4.41.
+% \begin{description}
+% \item [ \ (a)] Você acha que conhecer a idade do individuo ajuda a prever o tempo de reação?
+% \item [ \ (b)] Você acha que a redução nos resíduos foi grande?
+% \item [ \ (c)] Qual o valor do coeficiente de determinação $R^2$ ? Interprete esse número.
+% \item [ \ (d)]  Se fosse concluído que podemos considerar a inclinação $\beta_1= 0$, como deveria ser reescrito o
+% modelo ajustado? Justifique.
+% \end{description}
+
+\medskip 
+\question~\textbf{[2pts]} Uma companhia aérea sabe que 5\% das
+pessoas que fizeram reserva para um voo
+não apareceram para viagem. Consequentemente, a política da empresa é vender 52
+bilhetes para um voo que pode suportar 50
+passageiros. Qual é a probabilidade de que
+exista uma poltrona para cada passageiro
+que aparece?
+
+\medskip 
+\question~\textbf{[4pts]}
+% ~Defina, \textit{valor-p} ou nível descritivo, Erro Tipo I e Erro Tipo II. Explique, com suas palavras,  as etapas para a realização de um \textit{teste de hipóteses}.
+Considere uma amostra aleatória de 25 estudantes, aos quais foi perguntado o número de filmes assistidos  na semana anterior. O resultado é apresentado na Tabela~\ref{tab:ex1amostra}.
+
+\begin{table}[!h]
+\begin{center}\small\sffamily
+		  \begin{tabular}{c|c|c|c}
+           	     \hlinem{.5pt}{.5pt}{0mm}
+		  N. de filmes  &  $f$ & $f_{\text{rel}}$ & $F_{\text{rel}}$\\
+		    \hlinem{.5pt}{1pt}{0mm}
+		    $0$ & $5$ & &\\		    
+		    $1$ & $9$ & &\\		    
+		    $2$ & $6$ & &\\
+		    $3$ & $4$  & &\\  		    
+		    $4$ & $1$  & &\\  		    
+           	     \hlinem{.5pt}{.5pt}{0mm}
+		  \end{tabular}
+\caption{Resultado da pesquisa.}
+\label{tab:ex1amostra}
+\end{center}
+\end{table}
+
+Note-se que na Tabela~\ref{tab:ex1amostra}  denota-se por $f$  a frequência, por $f_{\text{rel}}$ a frequência relativa e $F_{\text{rel}}$ a frequência relativa acumulada. 
+\begin{description}
+\item[(a)]  Complete as colunas da Tabela.
+\item[(b)]  Encontre o primeiro quartil.
+\item[(c)] Encontre a mediana.
+\item[(d)] Que porcentagem dos estudantes viram menos de 3 filmes?
+\end{description}
+
+
+\medskip 
+\question~\textbf{[2pts]} 
+O ajuste de um modelo de regressão linear simples produz os seguintes gráficos de diagnóstico (Figuras~\ref{f1} e \ref{f2}) que podem ser usadas para avaliar a adequabilidade do modelo.
+
+\begin{figure}[!h]
+\caption{\label{f1}Gráfico de valores ajustados contra os resíduos}
+\centering\includegraphics[width=5.0cm]{RV.png}
+\end{figure}
+
+
+\begin{figure}[!h]
+\caption{\label{f2}Gráfico de quantis normais}
+\centering\includegraphics[width=5.0cm]{Rq.png}
+\end{figure}
+
+O que você pode concluir sobre o ajuste do modelo pela obervação destes gráficos? Justifique
+
+% % Formulas
+% \medskip 
+% \section*{Fórmulas}
+% \begin{align*}
+% \hat{\beta_1}&=\frac{\sum\limits_{i=1}^{n} (x_i -\overline{x})(y_i - \overline{y})}{\sum\limits_{i=1}^{n} (x_i -\overline{x})^{2}} \\
+% \hat{\beta_0}&=\overline{y}-\hat{\beta_1}\overline{x}  \\
+% \end{align*}
+
+% Tables
+
+% \input{Tables/normal.tex}
+
+% \input{Tables/tStudent.tex}
+
+% \input{Tables/chisq.tex}
+
+% \input{Tables/fSnedecor.tex}
+
+\end{document}
+
+% Prova

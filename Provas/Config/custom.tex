@@ -1,0 +1,303 @@
+%% Lista de Pacotes utilizados
+
+
+%% Deixando o caption mais interessante...
+%\renewcommand{\captionfont}{\itshape}
+
+
+\hypersetup{%backref,%
+%            pdfpagemode=FullScreen,%
+            colorlinks=true,%
+            citecolor=blue,%
+            urlcolor=blue, %
+            % urlcolor=black, %
+            linkcolor=blue,%
+            pdfauthor={André Leite Wanderley}, %
+            pdftitle={1EE/ET406}, %
+            pdfcreator={André Leite Wanderley}, %
+            breaklinks=true, %
+            linktocpage=true
+            }%
+
+
+\DeclareMathOperator*{\Inf}{Inf}%
+\DeclareMathOperator*{\Sup}{Sup}%
+\DeclareMathOperator*{\Min}{Min}%
+\DeclareMathOperator*{\Max}{Max}
+\DeclareMathOperator*{\Sgn}{Sgn}%
+\DeclareMathOperator*{\E}{E}%
+\newcommand{\mbf}{\boldsymbol}%
+\DeclareMathAlphabet\mathbb{U}{fplmbb}{m}{n}%
+%
+%\numberwithin{equation}{section}                       %%
+%\numberwithin{table}{section}                          %% Numeração dos floats...
+%\numberwithin{figure}{section}                         %%
+
+
+\newcommand{\oo}{\mathbin{\bullet}}
+\newcommand{\oc}{\mathbin{\circ}}
+\newcommand{\noo}{\mathbin{\not\!\bullet}}
+\newcommand{\cf}{\emph{cf.}\ }
+\newcommand{\ie}{\emph{i.e.}}
+\newcommand{\eg}{\emph{e.g.}}
+\newcommand{\raab}{\emph{reductio ad absurdum}}
+\newcommand{\eetc}{\textit{et c\ae tera}}
+\newcommand{\dom}{\mathfrak{D}}
+\newcommand{\ima}{\mathfrak{I}}
+\newcommand{\idenA}{\mathcal{I}_\mathcal{A}}
+\newcommand{\ce}{\ensuremath{\mathcal{X}}}
+\newcommand{\piq}{\ensuremath{\succsim}}
+\newcommand{\pq}{\ensuremath{\succ}}
+\newcommand{\iq}{\ensuremath{\sim}}
+\newcommand{\niq}{\ensuremath{\nsim}}
+\newcommand{\npiq}{\ensuremath{\not\succsim}}
+\newcommand{\npq}{\ensuremath{\nsucc}}
+\newcommand{\po}[2]{\ensuremath{(#1,#2)}}
+
+%\setlist{noitemsep}
+%\setlist{labelindent=\parindent} % << Usually a good idea
+\setlist{itemsep=0pt}%
+\setitemize{leftmargin=\parindent} %
+\setitemize[1]{label=$\triangleright$} %
+%\setenumerate[1]{label=\arabic*.,ref=\arabic*}
+\setenumerate[1]{label=\arabic*.,ref=\arabic*}
+\setenumerate[2]{label=\theenumi.\arabic*.,ref=\theenumi.\arabic*}
+\setenumerate[3]{label=\roman*.,ref=\theenumii.\roman*}
+%\setdescription{%font=\sffamily\bfseries}
+
+%                }%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Para facilitar minha vida
+
+\newcommand{\Ds}{\displaystyle}%
+\newcommand{\Ts}{\textstyle}%
+\newcommand{\Ss}{\scriptstyle}%
+\newcommand{\SSs}{\scriptscriptstyle}%
+
+\def\aureos{%
+            \newrgbcolor{gray1}{.9 .9 .9}
+            \newrgbcolor{guess1}{1 0.388235294 0.090196078}
+            \psset{unit=1in,cornersize=absolute}%
+            \psline[linecolor=guess1,linewidth=1.2pt](-0.125,-1.291667)(1.1125,-1.291667)
+            \psline[linecolor=guess1,linewidth=0.6pt](0.347683,-1.291667)(0.347683,-0.52685)
+            \psline[linecolor=guess1,linewidth=0.6pt](0.347683,-0.999533)(-0.125,-0.999533)
+            \psline[linecolor=guess1,linewidth=0.6pt](0.167134,-0.999533)(0.167134,-1.291667)
+            \psline[linecolor=guess1,linewidth=0.6pt](0.167134,-1.111118)(0.347683,-1.111118)
+            \psline[linecolor=guess1,linewidth=0.6pt](0.236098,-1.111118)(0.236098,-0.999533)
+            \psline[linecolor=guess1,linewidth=0.6pt](0.236098,-1.068496)(0.167134,-1.068496)
+            \psline[linecolor=guess1,linewidth=0.6pt](0.209756,-1.068496)(0.209756,-1.111118)
+            \psline[linecolor=guess1,linewidth=0.6pt](0.209756,-1.084776)(0.236098,-1.084776)
+           }%
+
+\def\GuEsS{%
+            \newrgbcolor{guess1}{1 0.388235294 0.090196078}
+            \newrgbcolor{guess2}{0.960784314 0.109803922 0.043137255}
+            \psset{unit=1in,cornersize=absolute}%
+            \rput(0,-1.5){{\fontsize{35}{0}\usefont{OT1}{cmr}{m}{n}\selectfont\textsc{\textbf{S}}}}%
+            \rput(0.625,-1.5){\shortstack{{\huge\textbf{\textsc{ystems}}}\\
+                {\scriptsize\sc\hfill Research Group}}}
+            \psline[linecolor=black,fillcolor=guess2,fillstyle=none,linewidth=3.6pt](-0.125,-1.725)(1.1125,-1.725)%
+            \uput{0.5ex}[l](1.148214,-1.229167){\llap{{\tiny\sc UFBA}}}%
+            \psline[linecolor=guess1,fillcolor=guess1,fillstyle=none,linewidth=1.2pt](-0.125,-1.291667)(1.1125,-1.291667)%
+            \psline[linecolor=guess1,fillcolor=guess1,fillstyle=none,linewidth=.6pt](0.347683,-1.291667)(0.347683,-0.52685)%
+            \psline[linecolor=guess1,fillcolor=guess1,fillstyle=none,linewidth=.6pt](0.347683,-0.999533)(-0.125,-0.999533)%
+            \psline[linecolor=guess1,fillcolor=guess1,fillstyle=none,linewidth=.6pt](0.167134,-0.999533)(0.167134,-1.291667)%
+            \psline[linecolor=guess1,fillcolor=guess1,fillstyle=none,linewidth=.6pt](0.167134,-1.111118)(0.347683,-1.111118)%
+            \psline[linecolor=guess1,fillcolor=guess1,fillstyle=none,linewidth=.6pt](0.236098,-1.111118)(0.236098,-0.999533)%
+            \psline[linecolor=guess1,fillcolor=guess1,fillstyle=none,linewidth=.6pt](0.236098,-1.068496)(0.167134,-1.068496)%
+            \psline[linecolor=guess1,fillcolor=guess1,fillstyle=none,linewidth=.6pt](0.209756,-1.068496)(0.209756,-1.111118)%
+            \psline[linecolor=guess1,fillcolor=guess1,fillstyle=none,linewidth=.6pt](0.209756,-1.084776)(0.236098,-1.084776)%
+           }%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\theoremstyle{plain}                     %%
+%\theoremstyle{margin}                   %%
+\theoremheaderfont{\scshape\bfseries}    %%
+\theorembodyfont{\rmfamily}                       %%
+
+\newtheorem{Prop}{\small Proposition}[section]  %%
+\newtheorem{Def}{\small Definition}[section]    %%
+\newtheorem{Not}{\small Notice}[section]    %%
+\newtheorem{Theo}{\small Theorem}[section]      %%
+\newtheorem{Lem}{\small Lema}[section]         %%
+\newtheorem{Coro}{\small Corollary}[section]    %%
+\newtheorem{Conj}{\small Conjecture}[section]   %%
+\newtheorem{Prob}{\small Problem}[section]      %%
+\newtheorem{Exa}{\small Example}[section]       %%
+%\theoremheaderfont{\bfseries}    %%
+%\theorembodyfont{\rmfamily}  %%
+\newtheorem{proof}{\small Demonstration}[section]
+\newtheorem{sol}{\small Solution}[section]
+
+
+\newenvironment{Proofm}               % Deve ter uma maneira
+    {%\strut \par\medskip             % ridiculamente mais
+     %\strut\hspace{\parindent}      % fácil de fazer isso...
+     %\begin{minipage}{.8\linewidth} % I'm sure about that.
+     \begin{proof}\small}                   %
+    {\strut\hfill\textsc{q.e.d.}\end{proof}                      %
+    %\end{minipage}                  %
+    %\strut\par\medskip
+                        }             %
+
+\newenvironment{solm}               % Deve ter uma maneira
+    {%\strut\par%\medskip             % ridiculamente mais
+     %\strut\hspace{\parindent}      % fácil de fazer isso...
+     %\begin{minipage}{.8\linewidth} % I'm sure about that.
+     %\begin{sol}
+     \small
+     \noindent\textbf{Solução:}
+     %\par %\smallskip
+     }                   %
+    {\strut\hfill\textsc{$\blacksquare$}%\end{sol}                      %
+    %\end{minipage}                  %
+    %\strut\par\medskip
+                        }             %
+
+
+
+\newenvironment{Propm}               % Deve ter uma maneira
+    {\strut\par\smallskip             % ridiculamente mais
+     \strut\hspace{\parindent}      % fácil de fazer isso...
+     \begin{minipage}{.8\linewidth} % I'm sure about that.
+     \begin{Prop}\small}                   %
+    {\end{Prop}                      %
+    \end{minipage}                  %
+    \strut\par\medskip
+    }             %
+
+
+\newenvironment{Defm}               % Deve ter uma maneira
+    {\strut\par\smallskip             % ridiculamente mais
+     \strut\hspace{\parindent}      % fácil de fazer isso...
+     \begin{minipage}{.8\linewidth} % I'm sure about that.
+     \begin{Def}\small}                   %
+    {\end{Def}                      %
+    \end{minipage}                  %
+    \strut\par\medskip}             %
+
+\newenvironment{Theom}               % Deve ter uma maneira
+    {\strut\par\smallskip             % ridiculamente mais
+     \strut\hspace{\parindent}      % fácil de fazer isso...
+     \begin{minipage}{.8\linewidth} % I'm sure about that.
+     \begin{Theo}\small}                   %
+    {\end{Theo}                      %
+    \end{minipage}                  %
+    \strut\par\medskip}
+
+\newenvironment{Notm}               % Deve ter uma maneira
+    {\strut\par\smallskip             % ridiculamente mais
+     \strut\hspace{\parindent}      % fácil de fazer isso...
+     \begin{minipage}{.8\linewidth} % I'm sure about that.
+     \begin{Not}\small}                   %
+    {\end{Not}                      %
+    \end{minipage}                  %
+    \strut\par\medskip}
+
+
+\newenvironment{Exam}               % Deve ter uma maneira
+    {%\strut\par\smallskip             % ridiculamente mais
+     %\strut\hspace{\parindent}      % fácil de fazer isso...
+     %\begin{minipage}{1\linewidth} % I'm sure about that.
+     \begin{Exa}\small}                   %
+    { \scriptsize$\blacksquare$\end{Exa}                      %
+    %\end{minipage}                  %
+    \strut\par\medskip}
+
+\def\Pt#1(#2,#3){
+       \expandafter\def\csname #1\endcsname{#2,#3}%
+       \expandafter\def\csname #1X\endcsname{#2}%
+       \expandafter\def\csname #1Y\endcsname{#3}}%
+
+\newcommand{\hlinem}[3]{\noalign{\vspace{#3}\hrule height #1 depth #2}}
+\newcommand{\hlinemilk}[3]{\noalign{}}
+
+\newcommand{\quem}[1]{\par\medskip\strut\hfill\bf  --- #1}
+\newcounter{questionNumber}
+\newcommand{\question}{\stepcounter{questionNumber}\lettrine[lhang=.75, findent=10pt, nindent=0pt,lines=3, lraise=.2]{\thequestionNumber}{$\blacktriangleright$}}
+
+
+\newenvironment{milkquote}
+    {\medskip %
+    \begin{center}
+    \begin{minipage}{.9\linewidth}
+    \hspace{.25cm}\small\itshape}%
+    {\medskip\end{minipage}
+    \end{center}
+    }%
+
+
+\newcommand{\fim}{%
+                 \par\medskip
+                 \begin{center}
+                      \includegraphics[width=1cm]{ornaments/ornamento4.eps}
+                 \end{center}
+                 \vspace*{.5cm}
+                 }%
+
+
+
+\newenvironment{milkanswer}
+    {\par %
+    \begin{center}
+    \color{orange}\textbullet\quad\textbf{Solution}\quad\textbullet
+    \end{center}\small
+    }%
+    {
+    \fim
+    }
+
+
+%%%
+%%% Set up page layout parameters.
+%%%
+\setlength\paperheight{297mm}      %
+\setlength\paperwidth{210mm}       % papel a4
+%\setlength{\parindent}{6mm}
+
+\addtolength{\hoffset}{-1in}%
+\addtolength{\voffset}{-1.5in}
+
+\setlength{\oddsidemargin}{25mm}    % 
+\setlength{\topmargin}{5cm}        %
+\setlength{\textwidth}{170mm}      % Margem direita: 25mm
+\setlength{\textheight}{220mm}  % Margem Inferior: 25mm
+\setlength{\marginparsep}{0mm}     %
+
+\setlength{\headheight}{16mm}
+\renewcommand{\columnsep}{1cm}%
+%\marginsize{1.25in}{1.75in}{1.25in}{1.25in}
+
+
+
+% If you can to leave the header here
+%---
+
+%---
+
+\renewcommand{\headrulewidth}{0pt}
+\definecolor{cor}{rgb}{.5,0, 0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Font 
+
+\defaultfontfeatures{Ligatures=Historic,Contextuals=Alternate, Numbers=OldStyle,RawFeature={ +hlig, +dlig, +ss05}}
+\setmainfont[RawFeature={+ss05, +hlig, +dlig}, BoldFont = Gentium Basic Bold, ItalicFeatures={RawFeature={+clig},CharacterVariant=5:0}]{EB Garamond}
+% % Do the replacements manually in titles, to not ruin the textsc
+% \newfontfamily\booktitlefont[RawFeature={-ss02},LetterSpace=40,WordSpace=6]{EB Garamond}
+% \newfontfamily\spacedfont[RawFeature={-ss02},LetterSpace=20,WordSpace=3]{EB Garamond}
+% \newfontfamily\lettrinefont{EB Garamond Initials}
+% \newfontfamily\headerfont{EB Garamond}
+
+%\setmainfont[BoldFont = Gentium Basic Bold,
+%      ItalicFont = Gentium Plus Italic,
+%      BoldItalicFont = Gentium Basic Bold Italic,
+%      Mapping = tex-text]{Gentium Plus}
+
+
+
+
+

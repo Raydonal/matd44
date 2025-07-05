@@ -1,0 +1,145 @@
+% Desenvolvido por André Leite - DE - UFPE
+% Ajustes Raydonal Ospina - DE - UFPE/UFBA
+
+\documentclass[a4paper,12pt,oneside,twocolumn]{Config/milktest}
+
+%---------------------- customização ----------------------
+
+\input{Config/pacotes.tex}
+\input{Config/custom.tex} 
+
+\usepackage{bm}
+
+%%%%%%%%%%%%%----- Header------%%%%%%%%%%%%%%%%%%%
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[scale=1.2]{Figuras/ufba.eps}}
+
+\fancypagestyle{milktablestyle}{
+    \fancyhead{}
+    \fancyfoot[C]{\thepage/\pageref{LastPage}} %
+}
+
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyhead[C]{
+\rput(0,2){
+  \begin{minipage}{1.75cm}\centering
+    \includegraphics[width=1.75cm]{Figuras/ufbaBlack.eps}
+  \end{minipage}~\hfill~\begin{minipage}{10cm}\Large\centering
+   \color{cor}{\scshape universidade federal da bahia}\\
+    {\scshape instituto de matemática e estatística}\\
+    {\scshape departamento de estatística}\\[5pt]
+    % Aqui as informações da prova e a data
+    {\Large\scshape  prova 2a Chamada --- mat 186\\ {\large 13 de julho de 2023}} 
+  \end{minipage}~\hfill~\begin{minipage}{1.75cm}\centering
+    \includegraphics[width=1.75cm]{Figuras/ufba.eps}
+  \end{minipage}
+  }}
+
+\fancyfoot[C]{\thepage/\pageref{LastPage}} % 
+
+%%%%%%%%%%%%%----- Header------%%%%%%%%%%%%%%%%%%%
+
+% \usepackage[printwatermark]{xwatermark}
+% \newwatermark[allpages,color=gray!20,angle=45,scale=3,xpos=30,ypos=-70]{DRAFT}
+
+\begin{document}
+
+
+
+% %------------------------------------------------
+\beb
+{
+\begin{description}
+\item[Professor:] Raydonal Ospina
+\item[E-mail:] raydonalmartinez@ufba.br
+\item[Site do curso:] \url{https://castlab.org/courses/mat186/}
+
+\item[Regras:] Leia com atenção as perguntas. Todas as questões devem ser detalhadas. A prova deve ser claramente resolvida. Seja claro e organizado. Pode fazer uso da calculadora. É expressamente {\bf proibido} o uso do celular durante a prova.
+
+% \item[Atenção:] Responsa única e exclusivamente o número de questões {\bf suficientes} para completar 10 (dez) pontos.  Fique a vontade para escolher as perguntas que achar mais interessantes. Especifique sua escolha, por exemplo, 2(a). (isto quer dizer que você escolheu  o numeral (a) da questão 2).
+ \end{description}
+}
+\eeb
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\balance
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \medskip 
+% \question~\textbf{[2pts]}  
+% Demonstre que uma sequência de variáveis aleatórias $\{X_t\}_{t\in T}$ independentes e identicamente distribuídas segundo uma função de densidade $f$ é estritamente estacionária.
+
+\medskip 
+\question~\textbf{[2pts]}  
+Demonstre que todo processo estocástico $\{X_t\}_{t\in T}$ estritamente estacionário em que $\mathbb{E}|X_t|\leq \infty$ é estacionário  no sentido amplo. 
+
+% \medskip 
+% \question~\textbf{[2pts]}  
+% Seja $\{X_n\}_{n\in \mathbb{N}_0}$ uma cadeia de Markov com conjunto de estados $S=\{-1,1\}$ e distribuição inicial $\pi^{(0)}= (0.5, 0.5)$ e matriz de transição dada por $$
+% \Pi = \begin{bmatrix}
+% 0.5 & 0.5 \\
+% 0.3 & 0.7
+% \end{bmatrix}.
+% $$
+% Calcule $$P(X_1=1, X_2=1|X_0=-1 ).$$
+
+% \medskip 
+% \question~\textbf{[6pts]} 
+% O senhor Deckard deseja investir seu capital em ações da  Petrobras.  De acordo com o estudo que sua equipe de estatísticos realizou, o comportamento diário das ações da  Petrobras  no mercado de ações pode ser classificado em três categorias: alta (A), estável (E) e baixa (B). Além disso, o senhor Deckard e sua equipe observaram que esse comportamento é uma variável aleatória que depende apenas do comportamento do dia anterior. 
+
+% Suponha que a seguinte matriz represente as probabilidades de transição no mercado de ações:
+% $$
+% \Pi = \begin{bmatrix}
+% 0.7 & 0.2 & 0.1 \\
+% 0.3 & 0.5 & 0.2 \\
+% 0.1 & 0.4 & 0.5
+% \end{bmatrix}
+% $$
+% Como o senhor Deckard também tem a opção de investir em ações do Banco do Brasil, ele decide observar o comportamento das ações da Petrobras por três dias consecutivos. Se durante esses três dias ele observar que as ações da Petrobras têm se mantido em alta, ele investirá todo o seu dinheiro nessas ações. Por outro lado, se durante esses três dias as ações tiverem estado em baixa, ele investirá todo o seu dinheiro em ações do Banco do Brasil. No caso de as ações se manterem estáveis, ele adiará sua decisão de investir.
+
+% Suponha que as probabilidades das ações da Petrobras estarem em alta, estáveis ou em baixa no dia em que o senhor Deckard decide iniciar sua observação sejam, respectivamente, 0.2, 0.5 e 0.3.
+
+
+% \begin{description}
+% % \item [\ (a) \textit{[2pts]}]  Calcular a probabilidade do Sr. Deckard investir todo o seu dinheiro em ações da Petrobras.
+% \item[ \ (a) \textit{[2pts]}] Calcular a probabilidade do Sr. Deckard investir todo o seu dinheiro em ações do Banco do Brasil.
+% \item[ \ (b) \textit{[2pts]}] Classifique os estados de cadeia, i.e., determine que estados são transitórios, recorrentes nulos, recorrentes positivos e absorventes. Justifique a sua resposta
+% \item[ \ (c) \textit{[2pts]}] A longo prazo, com que probabilidade as ações permanecem estáveis?
+% \end{description}
+
+
+
+
+\medskip 
+\question~\textbf{[2pts]} Sejam $i$ e $j$ estados de uma Cadeia de Markov discreta tais que  o estado $j$ é acessível a partir do estado $i,$ i.e. $i \longmapsto j,$ pode o estado $j$ pertencer a classe de equivalência do estado $i$? em outras palavras $i  \in C(j)$? Justifique sua resposta. 
+\break
+
+\medskip 
+\question~({\bf Instagram}) Um aluno recebe feeds e atualizações de conteúdo do Instagram em seu smartphone. Os feeds e as atualizações do Instagram são recebidos independentemente uns dos outros, e os intervalos entre dois feeds sucessivos e duas atualizações sucessivas são independentes e exponencialmente distribuídos com taxas $\lambda_{\text{feed}} = 10$
+e $\lambda_{\text{atualização}} = 20$ por hora, respectivamente. Os tamanhos de cada feed ou atualizações são independentes de todo o resto e uniformemente distribuídos no intervalo $[0, 1]$ Megabytes.
+\begin{enumerate}
+\item[a)]~\textbf{[2pts]}  Qual é a probabilidade do primeiro feed chegar antes da primeira atualização?
+\item[b)]~\textbf{[2pts]} Escreva a função de probabilidade do número total de feeds recebidos e atualizações em uma hora.
+\item[c)]~\textbf{[2pts]} Qual é a quantidade esperada de tráfego de Internet gasto, no total, durante a primeira hora.
+\end{enumerate}
+
+\bigskip
+
+
+\centering\color{cor}{\scshape boa prova}
+
+% Tables
+
+% \input{Tables/normal.tex}
+
+% \input{Tables/tStudent.tex}
+
+% \input{Tables/chisq.tex}
+
+% \input{Tables/fSnedecor.tex}
+
+\end{document}
+
+% Prova
