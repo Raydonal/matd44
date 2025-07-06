@@ -375,7 +375,7 @@ O material de apoio será distribuído ao longo do curso. Esse material pode inc
 ***
 ### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> <font color="red"> Provas </font> </u>
 
-*   [[<font color="red">  Prova I  </font>]](Provas/Prova-I-MATD44-2025-1.pdf) - [[Gabarito]](Provas/Gabarito-Prova-I-MATD44-2025-1.pdf)
+*   [[<font color="red">  Prova I  </font>]](Provas/Prova-I-MATD44-2025-1.pdf) - [[Gabarito]](Provas/Gabarito-Prova-I-MATD44-2025-1.pdf) - [[Notas]](Provas/Nota-Prova-I.md) 
 
 <!-- * <font color="red">- Prova I - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_I.pdf) -->
 
@@ -403,7 +403,7 @@ O material de apoio será distribuído ao longo do curso. Esse material pode inc
 <!-- * <font color="purple"> Prezado aluno, a prova I do dia 22/09/2022 será realizada da sala 109 do PAF V no horário habitual da aula. Caso haja alguma mudança deixarei algum recado na porta da sala. </font> -->
 ### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> Desafios </u> 
 
-[[Desafios]](Desafios/AvalDesafios.html)
+[[<font color="red">  Desafios  </font> / Conceitos]](Desafios/AvalDesafios.html)
 
 ***
 <!-- ###### Este documento foi gerado através de um arquivo [R Markdown](http://rmarkdown.rstudio.com/). Markdown é uma linguagem simples de formatação que permite produzir documentos HTML, PDF e MS Word, de forma eficiente.   -->
