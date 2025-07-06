@@ -112,7 +112,7 @@ p_amostra_densidade <- ggplot(amostra, aes(x = QI, fill = cientista)) +
 
 <!-- * **Carga horaria:** 60 horas/Aula. -->
 * **Professor:** Raydonal Ospina Martínez
-* **Homepage do Curso:** [https://castlab.org/courses/matd44/](https://castlab.org/courses/matd44/)
+* **Homepage do Curso:** [https://raydonal.github.io/matd44/](https://raydonal.github.io/matd44/)
 * **Contato:** raydonalmartinez@ufba.br
 * **Ementa do curso:** [MATD44](Configuracoes/matd44_amostragem_a.pdf) Teoria estatística da amostragem. Critérios para a elaboração de um delineamento amostral. Amostragem aleatória simples. Amostragem aleatória estratificada. Amostragem sistemática. Noções de Amostragem por conglomerados.
 * **Local e horário da disciplina:** As aulas serão ministradas às terças e quintas feiras
@@ -142,16 +142,16 @@ A avaliação tem como objetivo ajudar ao aluno a progredir nas suas aprendizage
 
 | Avaliação | Porcentagem  |	Data da Prova |
 |:-----------:|:-------------:|:-----------------:|
-| Atividade 1 |    30% 	    |     A definir  |
-| Atividade 2 |    30% 	    |     A definir  |
-| Atividade 3 |    40% 	    |     A definir  |
+| Prova 1     |    35% 	    |     A definir  |
+| Prova 2     |    35% 	    |     A definir  |
+| Desafios    |    30% 	    |     A definir  |
 
 
 A avaliação será constituída pela nota das atividades (que podem consistir em provas, listas de exercicios e/ou projetos a depender do desempenho e participação da turma). O grau atribuído ao aluno no final do curso será o da sua média global ponderada (média aritmética ponderada) entre as notas, i.e.,
 
 <center>
 <h3>
-    M = (0.3 * Atividade 1)+(0.3 * Atividade 2)+(0.4 * Atividade 3).
+    M = (0.35 * Prova 1)+(0.35 * Prova 2)+(0.3 * Desafios).
 </h3>
 </center>
 
@@ -213,7 +213,7 @@ A avaliação será constituída pela nota das atividades (que podem consistir e
 
 4. Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias. **Amostragem: Teoria e Prática Usando R**. Disponível [aqui](https://amostragemcomr.github.io/livro/), 2020.
 
-5. MORETTIN, Pedro A.; SINGER, Julio M. **Introdução à Ciência de Dados Fundamentos e Aplicações**. Versão parcial preliminar agosto 2019. Disponível [aqui](https://www.ime.usp.br/\~jmsinger/MAE5755/cdados2019ago06.pdf), 2019.
+5. [[MORETTIN, Pedro A.; SINGER, Julio M.]](Material/MorettimDados-2022.pdf) **Introdução à Ciência de Dados Fundamentos e Aplicações**. Versão parcial preliminar agosto 2019. Disponível [aqui](https://www.ime.usp.br/\~jmsinger/MAE5755/cdados2019ago06.pdf), 2019.
 
 6. [[LEWIS, Taylor]](Material/Lewis.pdf). **Complex survey data analysis with SAS**. CRC Press, 2016.
 
@@ -371,10 +371,11 @@ O material de apoio será distribuído ao longo do curso. Esse material pode inc
 
 <!-- * <font color="pink"> - Lista - Exercicios - </font> [[Aqui]](Material/Lista_1_MATD44_2023_2.pdf) -->
 
-<!-- * <font color="pink">- Prova I - </font>  [[Aqui]](Material/UFBA_MATD44_Amostragem_Prova_I.pdf) - [[Gabarito]](Scripts/GabaritoProvaI.pdf) -->
 
 ***
-<!-- ### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> <font color="red"> Provas </font> </u>  -->
+### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> <font color="red"> Provas </font> </u>
+
+*   [[<font color="red">  Prova I  </font>]](Provas/Prova-I-MATD44-2025-1.pdf) - [[Gabarito]](Provas/Gabarito-Prova-I-MATD44-2025-1.pdf)
 
 <!-- * <font color="red">- Prova I - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_I.pdf) -->
 
@@ -402,7 +403,7 @@ O material de apoio será distribuído ao longo do curso. Esse material pode inc
 <!-- * <font color="purple"> Prezado aluno, a prova I do dia 22/09/2022 será realizada da sala 109 do PAF V no horário habitual da aula. Caso haja alguma mudança deixarei algum recado na porta da sala. </font> -->
 ### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> Desafios </u> 
 
-[<font color="red"> - Desafio I - </font>](Desafios/Desafio1.html)
+[[Desafios]](Desafios/AvalDesafios.html)
 
 ***
 <!-- ###### Este documento foi gerado através de um arquivo [R Markdown](http://rmarkdown.rstudio.com/). Markdown é uma linguagem simples de formatação que permite produzir documentos HTML, PDF e MS Word, de forma eficiente.   -->
