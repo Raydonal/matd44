@@ -1,0 +1,217 @@
+---
+documentclass: extarticle
+classoption: landscape
+title: "Amostragem (MATD44)"
+subtitle:  "Estudo dirigido"
+geometry: margin=0.7in
+fontsize: 11pt
+mainfont: Cambria
+author: 
+  - Raydonal Ospina <a href='mailto:raydonal@castlab.org'> `r fontawesome::fa(name = 'envelope-circle-check', fill = 'darkgreen')`</a>
+output: 
+  html_document: 
+        theme: yeti
+        css:  config/StyleHomework.css
+  pdf_document: 
+    keep_tex: yes
+lang: pt
+# bibliography: refs.bib
+link-citations: yes
+linkcolor: blue
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+# Amostragem por Conglomerados
+
+Estimação de médias e totais.
+
+Para todos os exemplos, utilizaremos o poderoso **estimador de Horvitz-Thompson**. 
+
+
+Usaremos principalmente os pacotes `sampling` para selecionar as amostras e `survey` para a análise e estimação.
+
+# 1. Geração da População Finita e do Cadastro (Sampling Frame)
+
+## Dica Conceitual
+
+Antes de podermos selecionar uma amostra, precisamos de uma **população finita** da qual amostrar. Em cenários reais, essa população existe, mas não temos acesso a todos os seus dados. O que temos é o **cadastro** (ou *sampling frame*), que é uma lista ou mapa que identifica todas as unidades da população.
+
+## Processo de Geração
+
+Vamos criar uma população de 5.000 estudantes distribuídos em 100 escolas de tamanhos variados.
+
+```{r geracao_populacao}
+# Para reprodutibilidade
+set.seed(123)
+
+# Parâmetros da população
+N_escolas <- 100
+N_alunos_total <- 5000
+
+# 1. Criar as escolas com tamanhos variados
+tamanhos_escolas <- round(rlnorm(N_escolas, meanlog = 4, sdlog = 0.5))
+tamanhos_escolas <- round(tamanhos_escolas * (N_alunos_total / sum(tamanhos_escolas))) # Ajustar para o total
+
+populacao <- data.frame(
+  escola_id = rep(1:N_escolas, times = tamanhos_escolas)
+)
+
+# Adicionar tamanho da escola ao dataframe
+tamanhos_df <- data.frame(escola_id = 1:N_escolas, tamanho_escola = tamanhos_escolas)
+populacao <- merge(populacao, tamanhos_df, by = "escola_id")
+
+# 2. Gerar variáveis dos alunos
+N <- nrow(populacao)
+populacao$aluno_id <- 1:N
+populacao$horas_estudo <- round(rnorm(N, mean = 15, sd = 4) + populacao$escola_id * 0.05, 1)
+populacao$desempenho <- 50 + 1.5 * populacao$horas_estudo + rnorm(N, mean = 0, sd = 8)
+populacao$grupo <- sample(c("A", "B"), size = N, replace = TRUE, prob = c(0.6, 0.4))
+
+# Organizar colunas
+populacao <- populacao[, c("aluno_id", "escola_id", "tamanho_escola", "grupo", "horas_estudo", "desempenho")]
+
+# 3. Criar o Cadastro (Sampling Frame)
+cadastro <- populacao
+
+# 4. Calcular os verdadeiros parâmetros populacionais para avaliação
+param_total_desempenho <- sum(populacao$desempenho)
+param_media_desempenho <- mean(populacao$desempenho)
+
+cat("População Finita Criada:\n")
+cat(paste("Número total de alunos (N):", N, "\n"))
+cat(paste("Número total de escolas (Conglomerados):", N_escolas, "\n\n"))
+cat("Parâmetros Reais (que queremos estimar):\n")
+cat(paste("Total Real de Desempenho:", round(param_total_desempenho, 2), "\n"))
+cat(paste("Média Real de Desempenho:", round(param_media_desempenho, 2), "\n"))
+```
+
+---
+
+# 2. Amostragem por Conglomerados
+
+## Processo de Amostragem e Estimação
+Vamos selecionar 15 das 100 escolas e usar os dados de todos os alunos dessas escolas.
+
+```{r amostragem_conglomerados}
+library(sampling)
+library(survey)
+
+n_conglomerados <- 15
+set.seed(456)
+ids_conglomerados_amostrados <- sampling::cluster(
+  data = cadastro, 
+  clustername = "escola_id", 
+  size = n_conglomerados, 
+  method = "srswor"
+)
+
+amostra_conglomerado <- sampling::getdata(cadastro, ids_conglomerados_amostrados)
+amostra_conglomerado$N_total_escolas <- N_escolas
+
+design_conglomerado <- svydesign(
+  ids = ~escola_id, 
+  data = amostra_conglomerado,
+  fpc = ~N_total_escolas 
+)
+
+estimativa_total_cong <- svytotal(~desempenho, design_conglomerado)
+estimativa_media_cong <- svymean(~desempenho, design_conglomerado)
+
+cat("--- Resultados da Amostragem por Conglomerados ---\n\n")
+cat("Total Real:", round(param_total_desempenho, 2), "\n")
+print(estimativa_total_cong)
+cat("\n")
+cat("Média Real:", round(param_media_desempenho, 2), "\n")
+print(estimativa_media_cong)
+```
+
+
+
+
+# Estimação de Funções Lineares de Totais
+
+### Dica Conceitual
+Podemos querer estimar a diferença entre os totais de dois grupos (domínios). Por exemplo, "Qual a diferença no desempenho total entre o Grupo A e o Grupo B?". Usamos `svyby` para calcular os totais por grupo e depois `svycontrast` para calcular a diferença (que é uma combinação linear).
+
+```{r estimacao_linear}
+# 1. Estimar o total de desempenho por 'grupo'
+totais_por_grupo <- svyby(~desempenho, by = ~grupo, design = design_conglomerado, FUN = svytotal)
+print(totais_por_grupo)
+
+# 2. Definir o contraste para calcular (Total Grupo A - Total Grupo B)
+# O contraste `c(1, -1)` aplica o coeficiente 1 ao primeiro total e -1 ao segundo.
+diferenca_grupos <- svycontrast(totais_por_grupo, contrasts = list(grupo = c(1, -1)))
+
+# Parâmetro real para comparação
+total_grupo_A <- sum(populacao$desempenho[populacao$grupo == 'A'])
+total_grupo_B <- sum(populacao$desempenho[populacao$grupo == 'B'])
+param_diferenca_real <- total_grupo_A - total_grupo_B
+
+cat("\n--- Estimação de Função Linear (Diferença de Totais) ---\n\n")
+cat("Diferença Real (Total A - Total B):", round(param_diferenca_real, 2), "\n")
+print(diferenca_grupos)
+```
+## Estimação de Funções Não Lineares de Totais
+
+### Dica Conceitual
+Parâmetros mais complexos, como a variância populacional, são funções não lineares de totais. A variância de uma variável Y pode ser escrita como:
+
+`Var(Y) = (1/N) * [ Total(Y^2) - (Total(Y))^2 / N ]`
+
+Para estimá-la, precisamos:
+1.  Criar uma nova variável no nosso dataset: `desempenho_quadrado = desempenho^2`.
+2.  Estimar o total de `desempenho` e o total de `desempenho_quadrado`.
+3.  Combinar essas estimativas na fórmula da variância usando `svycontrast`.
+
+```{r estimacao_nao_linear}
+# 1. Adicionar a variável ao quadrado ao design
+design_conglomerado <- update(design_conglomerado, desempenho2 = desempenho^2)
+
+# 2. Estimar os dois totais necessários: Total(Y) e Total(Y^2)
+estimativas_para_var <- svytotal(~desempenho + desempenho2, design_conglomerado)
+print(estimativas_para_var)
+
+# 3. Combinar usando svycontrast
+# A expressão é: `Total(Y^2) / N - (Total(Y) / N)^2` que é uma aproximação para populações grandes.
+# O `svycontrast` nos permite aplicar esta fórmula aos totais estimados.
+# `nlcon` é um objeto de contraste não linear.
+# A expressão usa `~I(desempenho2 / N) - I((desempenho / N)^2)`
+# Substituímos N pelo seu valor conhecido. Se N fosse desconhecido, teríamos que estimá-lo também.
+estimativa_variancia <- svyvar(~desempenho, design_conglomerado)
+
+
+# Parâmetro real para comparação
+param_variancia_real <- var(populacao$desempenho) * (N-1)/N # variância populacional
+
+cat("\n--- Estimação de Função Não Linear (Variância Populacional) ---\n\n")
+cat("Variância Populacional Real:", round(param_variancia_real, 2), "\n")
+# O svyvar já faz todo o trabalho para nós!
+print(estimativa_variancia)
+```
+Nota: A função `svyvar` já está programada para estimar a variância corretamente, lidando com a não-linearidade e a estrutura do plano amostral para calcular o erro padrão de forma adequada (usando linearização de Taylor, por padrão). O resultado é uma estimativa precisa da variância populacional.
+
+
+## Estimação de  Razão de Totais
+
+### Dica Conceitual
+Frequentemente, estamos interessados na razão de duas variáveis, como o "desempenho médio por hora de estudo". Isso é calculado como `Total(desempenho) / Total(horas_estudo)`. O pacote `survey` faz isso de forma direta com `svyratio`.
+
+```{r estimacao_razao}
+# Estimar a razão entre o total de desempenho e o total de horas de estudo
+# Usando o design da amostragem por conglomerados
+estimativa_razao <- svyratio(~desempenho, ~horas_estudo, design_conglomerado)
+
+# Parâmetro real para comparação
+param_razao_real <- sum(populacao$desempenho) / sum(populacao$horas_estudo)
+
+
+cat("--- Estimação da Razão de Totais ---\n\n")
+cat("Razão Real (Desempenho / Horas de Estudo):", round(param_razao_real, 4), "\n")
+print(estimativa_razao)
+
+```
+
