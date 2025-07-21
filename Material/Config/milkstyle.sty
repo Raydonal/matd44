@@ -1,0 +1,367 @@
+\RequirePackage{mathrsfs,longtable,xspace,comment}
+\RequirePackage{layout,color}%,enum}%,verbatim}
+\RequirePackage{anysize,threeparttable,tabularx,endnotes,
+                acronym}
+
+
+\definecolor{gray50}{gray}{.5}
+\definecolor{gray40}{gray}{.6}
+\definecolor{gray30}{gray}{.7}
+\definecolor{gray20}{gray}{.8}
+\definecolor{gray10}{gray}{.9}
+\definecolor{gray05}{gray}{.95}
+
+\definecolor{orange6}{rgb}{.9,.568,.5}
+\definecolor{orange5}{rgb}{1,0.388235294,0.090196078}
+\definecolor{orange4}{rgb}{0.960784314,0.109803922,0.043137255}
+\definecolor{orange3}{rgb}{1,.549,0}
+\definecolor{orange}{rgb}{.722,.525,0.043}
+%\definecolor{orange}{rgb}{.11764,.1568,.96078}
+
+\newif\ifAMS
+\IfFileExists{amssymb.sty}
+  {\AMStrue\RequirePackage{amssymb}}{}
+\usepackage{latexsym}
+
+%\newif\ifST
+%\IfFileExists{stmaryrd.sty}
+%  {\STtrue\RequirePackage{stmaryrd}\newcommand\ST{\textsf{stmaryrd}}}
+%  {}
+
+%\newif\ifEU
+%\IfFileExists{euscript.sty}
+%  {\EUtrue\RequirePackage[mathcal]{euscript}}
+%  {\let\CMcal\mathcal}
+
+\RequirePackage{rotating}
+%\RequirePackage[leqno,centertags]{amsmath}
+%\RequirePackage{pxfonts}
+
+\RequirePackage{shortvrb}
+\RequirePackage{array}
+\RequirePackage{multirow}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator*{\esup}{ess\,sup}
+
+%\DeclareMathAlphabet{\mathsfsl}{OT1}{lfr}{m}{it}
+
+\newcommand{\matr}[1]{\ensuremath{\mathsfsl{#1}}}
+\newcommand{\me}{\mathrm{e}}
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\diff}{\mathrm{d}}
+
+%\RequirePackage{doc}
+\RequirePackage{boxedminipage}
+
+%\RequirePackage{pifont,pxfonts}
+
+\baselineskip12pt plus1pt minus 1pt
+\MakeShortVerb{\"}
+
+\newlength\Linewidth
+\def\findlength{\setlength\Linewidth\linewidth
+\addtolength\Linewidth{-4\fboxrule}
+\addtolength\Linewidth{-3\fboxsep}
+}
+ \newenvironment{examplebox}{\begingroup%
+   \setlength{\fboxsep}{5pt}\findlength%
+   \setbox0=\vbox\bgroup\noindent%
+   \hsize=\Linewidth%
+   \begin{minipage}{\Linewidth}\small}%
+    {\end{minipage}\egroup%
+    \vspace{6pt}%
+    \noindent\textcolor{gray20}{\fboxsep2.5pt\fbox%
+     {\fboxsep5pt\colorbox{gray05}{\normalcolor\box0}}}%
+    \endgroup\par\addvspace{6pt minus 3pt}\noindent%
+    \normalcolor\ignorespacesafterend}
+\let\Examplebox\examplebox
+\let\endExamplebox\endexamplebox
+
+ \newenvironment{nrbox}{\par\vspace{6pt minus 3pt}\noindent%
+   \bgroup\parskip0pt\topskip0pt\small
+   \let\saveverbatim\verbatim\let\saveendverbatim\endverbatim
+   \def\verbatim{\dcloser\saveverbatim}%
+   \def\endverbatim{\saveendverbatim\hcloser}%
+   }
+    {\par\vspace{6pt minus 3pt}\aftergroup\noindent%
+     \egroup\ignorespacesafterend}
+
+\def\ps@headings{%
+      \let\@oddfoot\@empty\let\@evenfoot\@empty
+      \def\@evenhead{\thepage\hfil{\small\scshape\leftmark}\hfil}%
+      \def\@oddhead{\hfil{\small\scshape\rightmark}\hfil\thepage}%
+       \let\@mkboth\markboth
+    \def\chaptermark##1{%
+      \markboth {{%
+        \ifnum \c@secnumdepth >\m@ne
+            \thechapter. \ %
+        \fi
+        ##1}}{}}%
+    \def\sectionmark##1{%
+      \markright {{%
+        \ifnum \c@secnumdepth >\z@
+          \thesection. \ %
+        \fi
+        ##1}}}}
+\AtBeginDocument{%
+\setcounter{secnumdepth}{2}%
+\setcounter{tocdepth}{2}%
+}
+\renewcommand\thepart {\@Roman\c@part}
+\renewcommand\thechapter {\@roman\c@chapter}
+\renewcommand\thesection {\thechapter.\@arabic\c@section}
+\renewcommand\thesubsection   {\thesection.\@arabic\c@subsection}
+\renewcommand\thesubsubsection{\thesubsection .\@arabic\c@subsubsection}
+\renewcommand\theparagraph    {\thesubsubsection.\@arabic\c@paragraph}
+\renewcommand\thesubparagraph {\theparagraph.\@arabic\c@subparagraph}
+\renewcommand\@chapapp{\chaptername}
+
+\AtEndDocument{\addtocontents{toc}{\string\end{indented}}}
+\def\cleardoublepage{\clearpage\if@twoside\ifodd\c@page\else%
+     \hbox{}\thispagestyle{plain}\newpage\if@twocolumn\hbox{}%
+     \thispagestyle{plain}\newpage\fi\fi\fi}
+\def\chapter{\if@openright%
+    \cleardoublepage\else\clearpage\fi
+    \thispagestyle{plain}%
+    \global\@topnum\z@
+    \@afterindentfalse
+    \secdef\@chapter\@schapter}
+
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+     \refstepcounter{chapter}%
+     \ifnum\c@chapter=1 \relax\else%
+     \addtocontents{toc}{\protect\end{indented}}\fi
+     \typeout{\@chapapp\space\thechapter.}%
+     \addcontentsline{toc}{chapter}%
+               {\protect\numberline{\thechapter}#1}%
+     \addtocontents{toc}{\protect\begin{indented}}
+      \else
+     \ifnum\c@chapter=1 \relax\else%
+     \addtocontents{toc}{\protect\end{indented}}\fi
+        \addcontentsline{toc}{chapter}{#1}%
+     \addtocontents{toc}{\protect\begin{indented}}
+      \fi
+      \chaptermark{#1}%
+      \addtocontents{lof}{\protect\addvspace{10\p@}}%
+      \addtocontents{lot}{\protect\addvspace{10\p@}}%
+      \if@twocolumn
+        \@topnewpage[\@makechapterhead{#2}]%
+      \else
+        \@makechapterhead{#2}%
+        \@afterheading
+      \fi}
+
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \centering \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+         {\color{orange}\large\scshape\@chapapp\space \thechapter}\\[-6pt]
+         \rule{1.5cm}{1.5pt}
+        \par\nobreak
+        \vskip 1\p@
+    \fi
+    \interlinepenalty\@M
+    \rmfamily \LARGE\scshape\lowercase{\color{orange}#1}\par\nobreak
+    \vskip 35\p@
+  }}
+\def\@schapter#1{\if@twocolumn
+       \@topnewpage[\@makeschapterhead{#1}]%
+     \else
+       \@makeschapterhead{#1}%
+       \@afterheading
+     \fi}
+\def\@makeschapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \centering
+    \LARGE\scshape\lowercase{\color{orange}#1}\par\nobreak
+    \vskip 35\p@
+  }}
+
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                 {-2.5ex \@plus -1ex \@minus -.2ex}%
+                 {2.3ex \@plus.2ex}%
+                 {\color{blue}\large\rmfamily\scshape\centering}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+ {-2.25ex\@plus -1ex \@minus -.2ex}%
+ {1.5ex \@plus .2ex}%
+ {\color{orange}\rmfamily\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+ {-2.25ex\@plus -1ex \@minus -.2ex}%
+ {1.5ex \@plus .2ex}%
+ {\color{orange}\rmfamily\normalsize}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+{2.25ex \@plus1ex \@minus.2ex}%
+{-1em}%
+{\color{orange}\rmfamily\normalsize}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
+   {2.25ex \@plus1ex \@minus .2ex}%
+   {-1em}%
+  {\color{orange}\normalfont\normalsize}}
+
+\def\beb{\begin{examplebox}}
+\def\eeb{\end{examplebox}}
+\def\bnrb{\begin{nrbox}}
+\def\enrb{\end{nrbox}}
+
+\setcounter{secnumdepth}{4}
+\def\chaptername{tutorial}
+\def\thechapter{\textsc{\roman{chapter}}}
+
+\ps@headings
+
+\def\old#1{\textsc{#1}}
+%\usepackage[oldstyle]{sabon}
+%\usepackage{sabon}
+
+\DeclareFontFamily{OT1}{hlst}{}%
+\DeclareFontShape{OT1}{hlst}{m}{n}{ <-> s * [0.8] hlsrt7t }{}%
+\DeclareFontShape{OT1}{hlst}{b}{n}{ <-> s * [0.8] hlsbt7t }{}%
+
+\def\@seccntformat#1{{\normalfont\csname the#1\endcsname.\hspace*{6pt}}}
+\def\@makelbl#1{\hbox to \labelwidth{\bfseries#1\hss}}
+\def\@makelb#1{\hbox to \labelwidth{\hss\bfseries#1}}
+\def\@itm[#1]{
+\if@noparitem
+ \@donoparitem
+\else \if@inlabel \hang\noindent\llap
+\par \fi \ifhmode \unskip\unskip \par \fi
+ \if@newlist \if@nobreak \@nbitem \else \addpenalty\@beginparpenalty
+ \addvspace\@topsep \addvspace{-\parskip}\fi \else
+ \addpenalty\@itempenalty \addvspace\itemsep \fi \global\@inlabeltrue
+\fi
+\everypar{\global\@minipagefalse\global\@newlistfalse
+         \@tempdima\hsize \advance\@tempdima -\leftmargin
+          \if@inlabel\global\@inlabelfalse \hskip -\parindent
+             \ifdim\wd\@labels>0 pt
+                \hbox to\@tempdima{\unhbox\@labels\hfill}
+             \else
+                \box\@labels \penalty\z@
+             \fi \fi
+          \everypar{}}\global\@nobreakfalse
+\if@noitemarg
+ \@latexerr{Items must have labels in the dispitems environment}\@ehc
+\fi
+\setbox\@tempboxa\hbox{\makelabel{#1}}%
+\global\setbox\@labels
+ \hbox{\unhbox\@labels \hskip \itemindent
+       \hskip -\labelwidth \hskip -\labelsep
+       \ifdim \wd\@tempboxa >\labelwidth
+                \box\@tempboxa
+          \else \hbox to\labelwidth {\unhbox\@tempboxa\hfill}\fi
+       \hskip \labelsep}\ignorespaces}
+
+\newenvironment{dispitems}%
+ {\begin{list}%
+  {}% no text if no optional argument to \item
+  {\topsep 1.5 ex
+   \itemsep .8 ex
+   \labelwidth .5 in
+   \labelsep 0.1 in
+   \leftmargin .6 in
+   \rightmargin 0 in
+   \parsep 0.25 ex
+   \listparindent 0 in
+   \let\makelabel\@makelbl
+   \let\@item\@itm
+   }%
+  }%
+ {\end{list}}
+
+\def\hang{\hangindent\parindent}
+
+\newenvironment{references}[1]{\begingroup\rmfamily\ritem}{\endgroup}
+\newcount\ritemno    \ritemno=0  \newcount\ritemcount  \ritemcount=0
+\def\ritem#1\par{\par\ifnum\ritemcount=0 \vskip.5\baselineskip
+    \else\vskip.2\normalbaselineskip \fi
+    \global\advance\ritemcount by1
+    \global\advance\ritemno by 1
+        \hang\noindent\llap\ignorespaces #1 }
+
+\newenvironment{pnote}[1]
+ {\begin{list}%
+  {}% no text if no optional argument to \item
+  {\topsep 1.5 ex
+   \itemsep 0.21 ex
+   \labelwidth 1.35 in
+   \labelsep 0.1 in
+   \settowidth\@tempdima{\ttfamily#1}
+   \addtolength\@tempdima{1.25em}
+   \leftmargin=\@tempdima
+   \rightmargin 0 in
+   \parsep 0.5 ex
+   \listparindent 0 in
+   \let\makelabel\@makelb
+   \let\@item\@itm
+   }%
+  }%
+ {\end{list}}
+
+\def\br{\noalign{\vskip3pt}
+        \noalign{\hrule height1pt}
+        \noalign{\vskip3pt}}
+\def\mr{\noalign{\vskip3pt}
+        \noalign{\hrule height.4pt}
+        \noalign{\vskip3pt}}
+
+\def\floatpagefraction{.99}
+\def\textpagefraction{.1}
+\def\eqref{\ref}
+\def\verbatim@font{\normalsize\ttfamily}
+\def\itmvrb{\ttfamily\string}
+\RequirePackage{ifthen}
+\def\xxlevel{section}
+\def\indented{\begingroup\@tempcnta0%
+     \def\numberline##1{##1\hspace{.5em}}%
+     \def\contentsline##1##2##3##4{%
+     \edef\xlevel{##1}%
+%     \ifthenelse{\equal{##1}{section}}{\advance\@tempcnta1%
+      \ifx\xlevel\xxlevel\advance\@tempcnta1%
+      \ifnum\@tempcnta<1 \relax\else\textcolor{red}%
+      {\footnotesize\textbullet}\hskip.5em\fi%
+       ##2
+       --
+       ##3\else\ignorespaces\fi}%
+     \list{}{\leftmargin2.25em%
+      \rightmargin\@pnumwidth%
+      \topsep\z@%
+      \itemsep\z@%
+      \labelwidth\z@%
+      \labelsep\z@%
+      \parsep\z@%
+      \listparindent\z@%
+         }%
+     \item[]\footnotesize}
+\def\endindented{\endlist\endgroup}
+
+\def\numberline#1{\hb@xt@\@tempdima{\hfil#1.~~}}
+\renewcommand*\l@chapter[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{2.25em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip\color{orange}
+      #1\nobreak\leaders\hbox{$\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+        mu$}
+      \hfil \nobreak\hb@xt@\@pnumwidth{\color{orange}\hss #2}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+
+\def\hcloser{\vspace*{-.5\baselineskip}}
+\def\closer{\vspace*{-1\baselineskip}}
+\def\ocloser{\vspace*{-1.5\baselineskip}}
+\def\dcloser{\vspace*{-2\baselineskip}}
+\def\tbtopbot{\vrule height 12pt depth 4pt width 0pt}
+\def\tbtop{\vrule height 12pt depth 0pt width 0pt}
+\def\tbbot{\vrule height 0pt depth 4pt width 0pt}
+\endinput
+

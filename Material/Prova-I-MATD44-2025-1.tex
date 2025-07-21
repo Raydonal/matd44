@@ -1,0 +1,200 @@
+% Desenvolvido por André Leite - DE - UFPE
+% Ajustes Raydonal Ospina - DE - UFPE/UFBA
+
+\documentclass[a4paper,11pt,oneside,twocolumn]{Config/milktest}
+
+%---------------------- customização ----------------------
+
+\input{Config/pacotes.tex}
+\input{Config/custom.tex} 
+
+\usepackage{bm}
+\usepackage{verbatimbox}
+\usepackage{float}
+
+%%%%%%%%%%%%%----- Header------%%%%%%%%%%%%%%%%%%%
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[scale=1.2]{Figuras/ufba.eps}}
+
+\fancypagestyle{milktablestyle}{
+    \fancyhead{}
+    \fancyfoot[C]{\thepage/\pageref{LastPage}} %
+}
+
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyhead[C]{
+\rput(0,2){
+  \begin{minipage}{1.75cm}\centering
+    \includegraphics[width=1.75cm]{Figuras/ufbaBlack.eps}
+  \end{minipage}~\hfill~\begin{minipage}{10cm}\Large\centering
+   \color{cor}{\scshape universidade federal da bahia}\\
+    {\scshape instituto de matemática e estatística}\\
+    {\scshape departamento de estatística}\\[5pt]
+    % Aqui as informações da prova e a data
+    {\Large\scshape  prova I --- matd44 --- 17/06/2025} 
+  \end{minipage}~\hfill~\begin{minipage}{1.75cm}\centering
+    \includegraphics[width=1.75cm]{Figuras/ufba.eps}
+  \end{minipage}
+  }}
+
+\fancyfoot[C]{\thepage/\pageref{LastPage}} % 
+
+%%%%%%%%%%%%%----- Header------%%%%%%%%%%%%%%%%%%%
+
+% \usepackage[printwatermark]{xwatermark}
+% \newwatermark[allpages,color=gray!20,angle=45,scale=3,xpos=30,ypos=-60]{DRAFT}
+
+\begin{document}
+
+
+
+
+% %------------------------------------------------
+\beb
+{\small
+\begin{description}
+\item[Professor:] Raydonal Ospina
+% \item[E-mail:] raydonalmartinez@ufba.br
+% \item[Site do curso:] \url{https://castlab.org/courses/matd49/}
+
+\item[Regras:] A prova é individual. Leia com atenção as perguntas. A prova deve ser claramente resolvida. 
+% Seja claro e organizado. Pode fazer uso de computadora, calculadora, celular, I.A., livros, material de aula.
+
+% \item[Atenção:] Responda única e exclusivamente o número de questões {\bf suficientes} para completar 10 (dez) pontos.  Fique a vontade para escolher as perguntas que achar mais interessantes. Especifique sua escolha, por exemplo, 1(a). (isto quer dizer que você escolheu  o numeral (a) da questão 1).
+\end{description}
+}
+\eeb
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\balance
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\medskip 
+\question~({\bf Plano amostral geral})    Seja 
+${\cal U}=\{1,2,3\}$ uma população finita de tamanho $N=3$ e $\mathbf{Y} =\{1,2,3\}$  o vetor da característica populacional renda bruta (mensal em salários mínimos) familiar.  Suponha que o seguinte plano amostral é implementado 
+$p(s_1)=p(\{1,2\})=\frac{1}{2},$ $p(s_2)=p(\{1,3\})=\frac{1}{4}$ e
+$p(s_3)=p(\{2,3\})=\frac{1}{4}.$
+\begin{description}
+% \item[a)]~\textbf{[2pts]} Determine as probabilidades de inclusão de primeira ordem. 
+\item[a)] Determine as probabilidades de inclusão de primeira e  segunda ordem. Determine se o plano amostral induzido pelo esquema de amostragem proposto é mensurável? 
+% \item[c)]~\textbf{[2pts]} Determine as covariâncias dos indicadores de pertencimento à amostra  $$I_k=I_k(s)=\begin{cases} 1, & k \in s, \\ 0, & \text{caso contrário}.\end{cases}$$
+\item[b)] Forneça a distribuição de probabilidades do estimador de Horvitz-Thompson $\hat{t}_\pi$ para o total populacional da renda bruta (mensal em salários mínimos) familiar.
+\item[c)] Determine a variância do estimador de Horvitz-Thompson $\hat{t}_\pi$ para o total populacional da renda bruta (mensal em salários mínimos) familiar sob este plano amostral.
+\end{description}
+
+
+\medskip 
+\question~~({\bf Plano amostral AASs}) Uma amostra aleatória simples e sem substituição de 5 pessoas foi selecionada de uma população de 100 trabalhadores da empresa LInCaTech. Foram coletadas a informações sobre a Renda mensal em miles de reais (Renda) e o sexo do trabalhador. Com as informações da tabela \ref{ID:Renda} estime:
+
+\begin{description}
+    \item[a)] A renda média dos trabalhadores. Estabeleça um intervalo de 95\% para a renda média.
+\item[b)] A renda total dos trabalhadores. Estabeleça um intervalo de 95\% para a renda total. 
+\end{description}
+{\small \begin{table}[H]
+\centering
+\begin{tabular}{rlr}
+  \hline
+ID & Sexo & Renda  \\ 
+  \hline
+    1 & Fem &  1 \\
+    2 & Mas &  2\\
+    3 & Fem &  3\\
+    4 & Fem &  4\\
+    5 & Mas &  5\\
+   %  6 & Fem &  6\\
+   %  7 & Mas &  7\\
+   %  8 & Mas &  8\\
+   %  9 & Fem &  9\\
+   % 10 & Mas & 10\\
+ 
+   \hline
+\end{tabular}
+\caption{Tabela de Informações dos empregados na amostra} 
+\label{ID:Renda}
+\end{table}
+}
+
+
+
+
+\medskip 
+\question~({\bf Amostragem Bernoulli}) Seja $s$ uma amostra obtida de um plano amostral de tipo Bernoulli com probabilidades de inclusão $\pi_k = \pi$ para todo $k \in U$ (população). Seja $n_s$ o tamanho de amostra da amostra $s.$ Mostre que a probabilidade condicional de se obter $s$ dado $n_s$ é a mesma que a probabilidade obtida por uma amostragem aleatória simples sem substituição de tamanho fixado $n_s$ de $N$ (Tamanho da população). 
+
+
+
+\medskip
+\question~({\bf Amostragem Sistemática}) Suponha uma população de 7 elementos cujos valores para a característica de interesse sejam dados por
+$\mathbf{Y} = \{1, 3, 5, 7, 6, 4, 2\}.$ Calcular a variância do estimador de Horvitz-Thompson para o total populacional em um plano amostral sistemático com $a = 2$ grupos. Para esse caso específico, o plano amostral sistemático é mais eficiente do que o plano amostral aleatório simples sem reposição? Explique.
+
+
+\medskip 
+\question~~({\bf Amostragem estratificada}) A Tabela \ref{tab:2} contem as informações do gasto mensal em serviços públicos de uma amostra aleatória estratificada de 120 famílias na cidade de Salvador a qual foi geograficamente dividida em três estratos: Norte, Centro e Sul.
+
+\begin{table}[!htb]
+\begin{tabular}{l|ccc}
+             & \multicolumn{3}{c}{Estratos}   \\ \hline
+Estatísticas & Norte (1)   & Centro (2) & Sul (3)      \\ \hline
+$N_h$        & 4000     & 6000     & 10000    \\
+$W_h$        & 0,3      & 0,2      & 0,5      \\
+$n_h$        & 40       & 36       & 44       \\
+$\bar{y}_h$  & 1,2      & 2,4      & 0,6      \\
+$\bar{Y}_h$  & 9600     & 7200     & 6000     \\
+$s^2_h$             & 0,36     & 1,21     & 0,04     \\
+${\rm Var}(\bar{y}_h)$          & 0,000993 & 0,004404 & 0,000226 \\ \hline
+\end{tabular}
+\caption{Informações do gasto familiar mensal em serviços públicos (em salários mínimos) a partir de uma amostra aleatória simples estratificada na cidade de Salvador.}
+\label{tab:2}
+\end{table}
+
+Estime o  gasto total de toda a população e estabeleça um intervalo de confiança de 95\% para o total populacional.
+ 
+
+
+
+
+% \vspace{5cm}
+
+\bigskip
+
+
+\centering\color{cor}{\scshape boa prova}
+
+
+% \bigskip 
+% \hrulefill
+% \begin{figure}[H]
+% \begin{center}
+% \includegraphics[scale=0.9]{Figuras/mem3.png}
+% %\vspace{-1cm}
+
+% %BOA PROVA
+% \end{center} 
+% \end{figure}
+% \bigskip 
+% \hrulefill
+% \begin{figure}[!h]
+% \begin{center}
+% \includegraphics{mem3.png}
+%\vspace{-1cm}
+
+%BOA PROVA
+% \end{center} 
+% \end{figure}
+
+% Tables
+
+% \input{Tables/normal.tex}
+
+% \input{Tables/tStudent.tex}
+
+% \input{Tables/chisq.tex}
+
+% \input{Tables/fSnedecor.tex}
+
+\end{document}
+
+% Prova

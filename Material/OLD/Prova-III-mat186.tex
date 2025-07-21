@@ -1,0 +1,145 @@
+% Desenvolvido por André Leite - DE - UFPE
+% Ajustes Raydonal Ospina - DE - UFPE/UFBA
+
+\documentclass[a4paper,10pt,oneside,twocolumn]{Config/milktest}
+
+%---------------------- customização ----------------------
+
+\input{Config/pacotes.tex}
+\input{Config/custom.tex} 
+
+\usepackage{bm}
+\usepackage{verbatimbox}
+
+%%%%%%%%%%%%%----- Header------%%%%%%%%%%%%%%%%%%%
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[scale=1.2]{Figuras/ufba.eps}}
+
+\fancypagestyle{milktablestyle}{
+    \fancyhead{}
+    \fancyfoot[C]{\thepage/\pageref{LastPage}} %
+}
+
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyhead[C]{
+\rput(0,2){
+  \begin{minipage}{1.75cm}\centering
+    \includegraphics[width=1.75cm]{Figuras/ufbaBlack.eps}
+  \end{minipage}~\hfill~\begin{minipage}{10cm}\Large\centering
+   \color{cor}{\scshape universidade federal da bahia}\\
+    {\scshape instituto de matemática e estatística}\\
+    {\scshape departamento de estatística}\\[5pt]
+    % Aqui as informações da prova e a data
+    {\Large\scshape  prova III --- mat186\\ {\large 13 de julho de 2023}} 
+  \end{minipage}~\hfill~\begin{minipage}{1.75cm}\centering
+    \includegraphics[width=1.75cm]{Figuras/ufba.eps}
+  \end{minipage}
+  }}
+
+\fancyfoot[C]{\thepage/\pageref{LastPage}} % 
+
+%%%%%%%%%%%%%----- Header------%%%%%%%%%%%%%%%%%%%
+
+% \usepackage[printwatermark]{xwatermark}
+% \newwatermark[allpages,color=gray!20,angle=45,scale=3,xpos=30,ypos=-60]{DRAFT}
+
+\begin{document}
+
+
+
+
+% %------------------------------------------------
+\beb
+{\small
+\begin{description}
+\item[Professor:] Raydonal Ospina
+\item[E-mail:] raydonalmartinez@ufba.br
+\item[Site do curso:] \url{https://castlab.org/courses/matd49/}
+
+\item[Regras:] Leia com atenção as regras. Seja claro e organizado. 
+
+\item[Atenção:] Você deverá encaminhar seu projeto digitalizado em formato {\bf PDF} no e-mail acima no dia 13/07/2023 até as 13:00h (GMT-3 - Horário de Brasília) 
+\end{description}
+}
+\eeb
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\balance
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{itemize}
+\item {\bf Da finalidade:} A finalidade deste projeto é encorajar e estimular o discente a pesquisar sobre conceitos e aplicações de processos estocásticos não vistos em sala de aula. 
+
+\item {\bf Da duração:} O projeto deverá ser realizado de forma individual ao longo destas últimas semanas. O tempo do projeto é desafiador pois envolve sua organização pessoal e mental (como acontece no mercado de trabalho)  e se inicia amanhã dia 20/06/2023 e finaliza com a  entrega do relatório em 13/07/2023.
+
+\item {\bf Dos objetivos:}  Os objetivos do projeto (Prova III) são (i) resumir os principais resultados na literatura sobre um tópico específico ou artigo sobre processos estocásticos não abordado na sala de aula  e (ii) apresentar um resumo da análise teórica e prática (resultados e comprovação) dos métodos. 
+
+\item {\bf Do desafio:} Você pode desenvolver uma nova teoria/método/ferramenta/aplicação para processos estocásticos se você gostar, preferir ou desejar, mas {\bf NÃO} é necessário nem obrigado.
+
+\item {\bf Do projeto:} O projeto (prova III) do curso envolve a escolha de um tópico de interesse (ou artigo) sobre processos estocásticos e depois de ler, entender e tentar reproduzir os resultados relevantes da pesquisa  escrever um breve relatório com no máximo (15 páginas - uma coluna). Eu encorajo mas {\bf NÃO} é obrigado a escolher um tema preferivelmente de cunho teórico. Você {\bf NÃO} é obrigado a produzir novas pesquisas ou resultados inéditos. 
+
+O relatório deve ser redigida em língua portuguesa ou inglesa usando datilografia científica de preferencia. No que se refere à plataforma computacional, eu sugiro que sejam  usadas linguagens de alto nível de programação com bom suporte numérico  para operações algébricas como {\tt Octave, Python, Julia, R} ou {\tt SAS, JMP} entre outros.
+
+\item {\bf Sobre uso de Inteligencia Artificial:} Você pode usar ferramentas de inteligencia artificial como o {\tt ChatGPT, Perplexity, Consensus, Research Rabbit, etc
+} no direcionamento de seu projeto sempre que não incorra em violação de direitos autorais, falta de uso de suas mentes e desenvolvimento cognitivo. Lembrem que existem ferramentas de controle de plágio que seu instrutor também sabe usar. Não use estas ferramentas de forma irresponsável. 
+
+\item {\bf Do conteúdo do relatório:}  O documento deve conter tentativamente: 
+\begin{enumerate}
+\item Título  
+\item Introdução. Motivação e um rápido resumo da área.
+\item Notação e premissas.
+\item Principais Resultados.
+\item Simulação dos resultados (não é obrigatório)
+\item  Esboços de prova e metodologia para a obtenção dos resultados. 
+\item Conclusão. Isto inclui comentários sobre o significado dos resultados e questões em aberto quando houver
+\item Caso precise incluir material suplementar produza um site ou coloque esse material num repositório de acesso aberto (lema da pesquisa reproduzível e transparência em pesquisa). Nesse sentido encorajo o uso do {\tt Github} (\url{https://github.com/}) 
+\end{enumerate}
+\end{itemize}
+
+Alguns Tópicos sugeridos para o projeto 
+(Fique a vontade para escolher o seu tema, não necessariamente da lista a seguir)
+
+\begin{itemize}
+    \item Modelo de filas
+    \item Movimento Browniano
+    \item Processos estocásticos com componente espacial
+    \item Processos pontuais de Poisson
+    \item Modelos de rumores
+    \item Grafos estocásticos
+    \item Percolação
+    \item Coalescência
+    \item Automatas celulares
+    \item Redes neurais de cadeias de Markov
+    \item Cadeia de Markov Monte Carlo com salto reversível
+\end{itemize}
+
+\bigskip
+
+
+\centering\color{cor}{\scshape boa prova}
+
+\bigskip 
+\hrulefill
+\begin{figure}[!h]
+\begin{center}
+\includegraphics{mem3.png}
+\vspace{-1cm}
+\end{center} 
+\end{figure}
+
+% Tables
+
+% \input{Tables/normal.tex}
+
+% \input{Tables/tStudent.tex}
+
+% \input{Tables/chisq.tex}
+
+% \input{Tables/fSnedecor.tex}
+
+\end{document}
+
+% Prova

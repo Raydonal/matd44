@@ -1,0 +1,126 @@
+% Desenvolvido por André Leite - DE - UFPE
+% Ajustes Raydonal Ospina - DE - UFPE/UFBA
+
+\documentclass[a4paper,12pt,oneside,twocolumn]{Config/milktest}
+
+%---------------------- customização ----------------------
+
+\input{Config/pacotes.tex}
+\input{Config/custom.tex} 
+
+\usepackage{bm}
+\usepackage{verbatimbox}
+\usepackage{float}
+
+%%%%%%%%%%%%%----- Header------%%%%%%%%%%%%%%%%%%%
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[scale=1.2]{Figuras/ufba.eps}}
+
+\fancypagestyle{milktablestyle}{
+    \fancyhead{}
+    \fancyfoot[C]{\thepage/\pageref{LastPage}} %
+}
+
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyhead[C]{
+\rput(0,2){
+  \begin{minipage}{1.75cm}\centering
+    \includegraphics[width=1.75cm]{Figuras/ufbaBlack.eps}
+  \end{minipage}~\hfill~\begin{minipage}{10cm}\Large\centering
+   \color{cor}{\scshape universidade federal da bahia}\\
+    {\scshape instituto de matemática e estatística}\\
+    {\scshape departamento de estatística}\\[5pt]
+    % Aqui as informações da prova e a data
+    {\Large\scshape  prova II --- matd44 --- 22/07/2025\\ } 
+  \end{minipage}~\hfill~\begin{minipage}{1.75cm}\centering
+    \includegraphics[width=1.75cm]{Figuras/ufba.eps}
+  \end{minipage}
+  }}
+
+\fancyfoot[C]{\thepage/\pageref{LastPage}} % 
+
+%%%%%%%%%%%%%----- Header------%%%%%%%%%%%%%%%%%%%
+
+% \usepackage[printwatermark]{xwatermark}
+% \newwatermark[allpages,color=gray!20,angle=45,scale=3,xpos=30,ypos=-60]{DRAFT}
+
+\begin{document}
+
+
+
+
+% %------------------------------------------------
+\beb
+{\small
+\begin{description}
+\item[Professor:] Raydonal Ospina
+% \item[E-mail:] raydonal@castlab.org
+% \item[Site do curso:] \url{https://castlab.org/courses/matd44/}
+
+\item[Regras:] Leia com atenção as perguntas. {\bf Todas as questões devem ser detalhadas.} A prova deve ser claramente resolvida. Seja claro e organizado. 
+\end{description}
+}
+\eeb
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\balance
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% \medskip 
+% \question~({\bf Amostragem Bernoulli}) Seja $s$ uma amostra obtida de um desenho amostral de tipo Bernoulli com probabilidades de inclusão $\pi_k = \pi$ para todo $k \in U$ (população). Seja $n_s$ o tamanho de amostra da amostra $s.$ Mostre que a probabilidade condicional de se obter $s$ dado $n_s$ é a mesma que a probabilidade obtida por uma amostragem aleatória simples sem substituição de tamanho fixado $n_s$ de $N$ (Tamanho da população). 
+
+
+% \question~({\bf Amostragem Bernoulli}) Na elaboração de um estudo de rede de escritório, o seguinte esquema de amostragem sequencial foi proposto para selecionar uma amostra aleatória de dois intervalos de horários de escritório não adjacentes dentre os cinco intervalos 9-10, 10-11, 11-12, 12-13, 13-14 (rotulados de 1 a 5). Seleciona-se o primeiro intervalo de uma hora para a amostra com igual probabilidade a partir dos cinco intervalos. Em seguida, seleciona-se o segundo intervalo de uma hora, sem reposição, com igual probabilidade dos intervalos que não são adjacentes no tempo ao primeiro intervalo selecionado no primeiro sorteio.
+% \begin{itemize}
+% \item[a)] Determine as probabilidades de inclusão de primeira ordem. 
+% \item[b)] Determine as probabilidades de inclusão de segunda ordem e determine se esse plano amostral induzido pelo esquema de amostragem proposto é mensurável? 
+% \item[c)] Determine as covariâncias dos indicadores de pertencimento à amostra.
+% \end{itemize}
+
+
+
+\medskip 
+\question~({\bf Estimação por conglomerados})
+Uma amostra de 5 fazendas na Bahia (conglomerados) foi selecionada por amostragem aleatória simples sem reposição de uma população de 100 fazendas para estimar a produção média de soja por hectare. Os dados da amostra são:
+\begin{itemize}
+\item Fazenda 1: 80 hectares, produção total 400 toneladas
+\item  Fazenda 2: 120 hectares, produção total 540 toneladas
+\item Fazenda 3: 100 hectares, produção total 480 toneladas
+\item Fazenda 4: 90 hectares, produção total 450 toneladas
+\item Fazenda 5: 110 hectares, produção total 495 toneladas
+\end{itemize}
+Estime a produção total de soja por hectare ($\hat{t}$). Forneça uma expressão para a estimativa da variância. 
+
+\medskip 
+\question~({\bf Eficiência na estimação por conglomerados}) No contexto da amostragem por conglomerados, como o  
+coeficiente de correlação intraclasse impacta a eficiência do estimador de Horvitz-Thompson para a média populacional?
+
+\medskip 
+\question~({\bf Amostragem com probabilidade proporcional ao tamanho (PPT)}) Explique por que a amostragem com probabilidade proporcional ao tamanho (PPT) é frequentemente mais eficiente do que a amostragem aleatória simples (AAS) sem reposição para estimar totais populacionais quando existe uma correlação positiva entre a variável de interesse $(y)$ e uma variável auxiliar de tamanho $x$ (como área, densidade demográfica, etc)?
+
+
+\medskip 
+\question~({\bf Estimação de parâmetros lineares de totais em populações finitas}) Uma pesquisa foi feita para estimar a diferença no número de horas semanais gastas em redes sociais por jovens de dois cursos diferentes na UFBA (chamemos A e B). Os resultados das amostragens independentes são:
+\begin{itemize}   
+\item Curso A: \(\widehat{t}_A = 50.000\) horas; \(\widehat{V}(\widehat{t}_A) = 1.200.000\)
+\item Curso B: \(\widehat{t}_B = 42.000\) horas; \(\widehat{V}(\widehat{t}_B) = 900.000\).
+\end{itemize}
+Estime o contraste entre os totais (\(D = 3 t_A - 2 t_B\)) e a variância dessa estimativa.
+
+
+\medskip 
+\question~({\bf Estimação de parâmetros não-lineares de totais em populações finitas}) Estamos interessados em estimar a variância de um estimador do parâmetro populacional não-linear (produto de totais) $\theta=f(t_y,t_z)=t_y\cdot t_z$, através do produto de dois estimadores de Horvitz-Thompson de totais totais $\widehat{\theta} = {\widehat{t}_\pi}{_y} \cdot {\widehat{t}_\pi}{_z}$ das características populacionais $y$ e $z$.  Descreva 
+passo a passo  como poderia aproximar a variância de $\hat{\theta}.$
+
+\bigskip
+
+
+\centering\color{cor}{\scshape boa prova}
+
+
+
+\end{document}
+

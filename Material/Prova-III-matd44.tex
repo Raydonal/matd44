@@ -1,0 +1,118 @@
+% Desenvolvido por André Leite - DE - UFPE
+% Ajustes Raydonal Ospina - DE - UFPE/UFBA
+
+\documentclass[a4paper,11pt,oneside,twocolumn]{Config/milktest}
+
+%---------------------- customização ----------------------
+
+\input{Config/pacotes.tex}
+\input{Config/custom.tex} 
+
+\usepackage{bm}
+\usepackage{verbatimbox}
+\usepackage{float}
+
+%%%%%%%%%%%%%----- Header------%%%%%%%%%%%%%%%%%%%
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[scale=1.2]{Figuras/ufba.eps}}
+
+\fancypagestyle{milktablestyle}{
+    \fancyhead{}
+    \fancyfoot[C]{\thepage/\pageref{LastPage}} %
+}
+
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyhead[C]{
+\rput(0,2){
+  \begin{minipage}{1.75cm}\centering
+    \includegraphics[width=1.75cm]{Figuras/ufbaBlack.eps}
+  \end{minipage}~\hfill~\begin{minipage}{10cm}\Large\centering
+   \color{cor}{\scshape universidade federal da bahia}\\
+    {\scshape instituto de matemática e estatística}\\
+    {\scshape departamento de estatística}\\[5pt]
+    % Aqui as informações da prova e a data
+    {\Large\scshape  prova III --- matd44\\ } 
+  \end{minipage}~\hfill~\begin{minipage}{1.75cm}\centering
+    \includegraphics[width=1.75cm]{Figuras/ufba.eps}
+  \end{minipage}
+  }}
+
+\fancyfoot[C]{\thepage/\pageref{LastPage}} % 
+
+%%%%%%%%%%%%%----- Header------%%%%%%%%%%%%%%%%%%%
+
+% \usepackage[printwatermark]{xwatermark}
+% \newwatermark[allpages,color=gray!20,angle=45,scale=3,xpos=30,ypos=-60]{DRAFT}
+
+\begin{document}
+
+
+
+
+% %------------------------------------------------
+\beb
+{\small
+\begin{description}
+\item[Professor:] Raydonal Ospina
+\item[E-mail:] raydonal@castlab.org
+% \item[Site do curso:] \url{https://castlab.org/courses/matd44/}
+
+\item[Regras:] Leia com atenção as perguntas. {\bf Todas as questões devem ser detalhadas.} A prova deve ser claramente resolvida. Seja claro e organizado. 
+
+\item[Atenção:] Você deverá encaminhar a solução da sua prova digitalizada em formato {\bf PDF} no e-mail acima no dia 03/09/2023 até as 15:00h (GMT-3 - Horário de Brasília) 
+\end{description}
+}
+\eeb
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\balance
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section*{Apresentação}
+O projeto é direcionado no estudo da  PPM - Pesquisa da Pecuária Municipal. Maiores detalhes ver aqui PPM \url{https://www.ibge.gov.br/estatisticas/economicas/agricultura-e-pecuaria/9107-producao-da-pecuaria-municipal.html?=&t=destaques}
+
+O projeto deve ser realizado de forma individual e utiliza o arquivo de dados {\tt PPM-29-de-Ago.xlsx} como cadastro (população) para seleção de amostras. O arquivo conta com informações do número de efetivos por espécie para bovinos, equinos, suínos (total) e galináceos (total) para o ano de 2020 e para todos os municípios das regiões sudeste e centro-oeste. Os dados foram extraídos da Pesquisa da Pecuária Municipal, realizada anualmente pelo IBGE e se encontram no sistema SIDRA ver \url{https://sidra.ibge.gov.br/tabela/3939}
+
+\section*{Objetivos}
+
+O objetivo geral do projeto é comparar o desempenho de diversos planos amostrais com respeito a precisão de estimativas fornecidas para totais de animais para o ano de 2020 para cada espécie, para as duas regiões como um todo, e para cada região em separado.  
+
+\subsection*{Atividade 1.} 
+Faça uma análise descritiva que evidencie os valores dos parâmetros de interesse a serem estimados. Apresente os resultados numéricos em uma tabela ou quadro. Dentre os objetivos específicos estão o planejamento e a seleção de amostras utilizando amostragem aleatória simples (AAS) e amostragem de Bernoulli (BE) 
+
+\subsection*{ Atividade 2.} 
+
+Forneça uma breve descrição do esquema amostral que será utilizado para cada tipo de amostragem citado acima.  Considerando a necessidade de gerar estimativas por região, cada região será considerada como um estrato, e cada amostra será alocada proporcionalmente ao tamanho de cada estrato.  
+
+\subsection*{Atividade 3.}
+
+Descreva como é selecionada uma amostra estratificada, qual a forma geral do estimador de Horvitz-Thompson para o total populacional, sua variância, e o estimador da variância. Descreva também como é feita uma alocação de amostra proporcional ao tamanho dos estratos. Ainda dentre os objetivos específicos estão a seleção de amostras estratificadas e a geração de estimativas por cada plano amostral. Serão consideradas frações amostrais de 5\% e 10\%. 
+
+
+\subsection*{ Atividade 4.} 
+Para cada fração amostral, planeje e selecione amostras de acordo com os planos:
+
+- AAE – Amostragem aleatória estratificada (AAS dentro de cada estrato);
+
+- AEBE – Amostragem estratificada de Bernoulli (BE dentro de cada estrato);
+
+
+Apresente uma descrição de suas decisões para implementação de cada plano. Coloque no anexo do seu projeto a lista dos municípios selecionados em cada plano, para a fração amostral de 5\%. 
+
+\subsection*{Atividade 5. }
+Para cada amostra selecionada apresente estimativas de total populacional, erro-padrão, e coeficiente de variação, para cada espécie de animal do ano de 2020. 
+
+Por último, de posse das estimativas produzidas, faça um estudo de recomendação de tamanho de amostra caso uma amostra aleatória estratificada seja considerada para selecionar uma amostra de municípios no futuro.
+
+\bigskip
+
+
+\centering\color{cor}{\scshape boa prova}
+
+
+
+\end{document}
+
